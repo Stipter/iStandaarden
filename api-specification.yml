@@ -1,0 +1,276 @@
+openapi: 3.0.2
+info:
+  version: 0.0.9
+  title: iStandaarden koppeling
+  description: "Een standaard om gegevensuitwisseling tussen WIZportaal en de iStandaarden."
+
+servers:
+- url: https://{environment}.example.com/project-name/api/v1
+  description: Testomgeving
+  variables:
+    environment:
+      enum:
+        - testen
+        - acceptatie
+      default: testen
+
+paths:
+  /api/v23/ijw/creeer301:
+    post:
+      summary: Geeft een JW301 xml bericht als base64 terug
+      tags:
+        - IJW
+      parameters:
+        - in: body
+          name: creeer301Bericht
+          required: true
+          schema:
+            $ref: '#/components/schemas/creeerJW301Bericht'
+      responses:
+        '200':
+          description: Een collectie aanvragen met beschikkingen en producten
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeer301Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+  /api/v23/iwmo/creeer301:
+    post:
+      summary: Geeft een WMO301 xml bericht als base64 terug
+      tags:
+        - IWMO
+      parameters:
+        - in: body
+          name: creeer301Bericht
+          required: true
+          schema:
+            $ref: '#/components/schemas/creeerWMO301Bericht'
+      responses:
+        '200':
+          description: Een collectie aanvragen met beschikkingen en producten
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeer301Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+  /api/v23/codetabellen:
+    get:
+      summary: "Geeft de beschikbare collectie van de codetabel terug"
+      tags: 
+        - codetabellen
+      responses:
+        '200':
+          description: alle beschikbare codetabellen
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/code'
+        '400':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+  /api/v23/codetabellen/{code}:
+    get:
+      summary: "Geeft de beschikbare codetabel terug"
+      tags: 
+        - codetabellen
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema:
+            type: string
+            enum:
+              - COD032
+              - COD043
+              - COD046
+              - COD170
+              - COD260
+              - COD327
+              - COD363
+              - COD467
+              - COD472
+              - COD539
+              - COD700
+              - COD736
+              - COD747
+              - COD749
+              - COD757
+              - COD825
+              - COD828
+              - COD833
+              - JZ002
+              - JZ020
+              - JZ588
+              - NUM061
+              - WJ001
+              - WJ003
+              - WJ232
+              - WJ756
+              - WMO106
+              - WMO757
+
+
+      responses:
+        '200':
+          description: de gevraagde codetabel
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/code'
+        '400':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+
+components:
+  schemas:
+    creeerJW301Bericht:
+      type: object
+      description: "Een JW301 json bericht dat getransformeert moet worden naar xml"
+      properties:
+        JW301Bericht:
+          type: object
+    creeerWMO301Bericht:
+      type: object
+      description: "Een WMO301 json bericht dat getransformeert moet worden naar xml"
+      properties:
+        WMO301Bericht:
+          type: object
+    creeer301Wrapper:
+      type: object
+      description: "Een JW of WMO 301 bericht als base64 met transformeer resultaat"
+      properties:
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        xmlAsBase64String:
+          type: string
+    validationResult:
+      type: object
+      description: "resultaat van het van de gehele actie"
+      properties:
+        isValid:
+          type: boolean
+        schemaValidationResult:
+          $ref: '#/components/schemas/schemaValidationResult'
+        transformationValidationResult:
+          $ref: '#/components/schemas/transformationValidationResult'
+    schemaValidationResult:
+      type: object
+      description: "resultaat van de schema validatie"
+      properties:
+        isValid:
+          type: boolean
+        details:
+          type: string
+    transformationValidationResult:
+      type: object
+      description: "resultaat van de transformatie validatie"
+      properties:
+        isValid:
+          type: boolean
+        details:
+          type: string
+    code:
+      type: object
+      properties:
+        code: 
+          type: string
+        omschrijving:
+          type: string
+        ingangsDatum:
+          type: string
+          format: date
+        expiratieDatum:
+          type: string
+          format: date
