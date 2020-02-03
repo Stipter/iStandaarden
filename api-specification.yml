@@ -112,7 +112,9 @@ paths:
               schema:
                 type: array
                 items: 
-                  $ref: '#/components/schemas/code'
+                  type: array
+                  items: 
+                    $ref: '#/components/schemas/code'
         '400':
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
         '401':
