@@ -15,7 +15,7 @@ servers:
       default: testen
 
 paths:
-  /api/v23/ijw/creeer301:
+  /api/v23/istandaarden/ijw/301/create:
     post:
       summary: Geeft een JW301 xml bericht als base64 terug
       tags:
@@ -57,7 +57,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
-  /api/v23/iwmo/creeer301:
+  /api/v23/istandaarden/iwmo/301/create:
     post:
       summary: Geeft een WMO301 xml bericht als base64 terug
       tags:
@@ -99,7 +99,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
-  /api/v23/codetabellen:
+  /api/v23/istandaarden/codetabellen:
     get:
       summary: "Geeft de beschikbare collectie van de codetabel terug"
       tags:
@@ -139,7 +139,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
-  /api/v23/codetabellen/{code}:
+  /api/v23/istandaarden/codetabellen/{code}:
     get:
       summary: "Geeft de beschikbare codetabel terug"
       tags:
@@ -233,7 +233,48 @@ components:
         beschikking:
           $ref: '#/components/schemas/wmoJwBeschikking'
         toegewezenProduct:
-          type: object
+          $ref: '#/components/schemas/wmoJwToegewezenProduct'
+
+    wmoJwToegewezenProduct:
+      type: object
+      description: Toegewezen product
+      properties:
+        toewijzingNummer:
+          type: string
+        referentieAanbieder:
+          type: string
+        product:
+          $ref: '#/components/schemas/wmoJwProduct'
+        toewijzingsdatum:
+          type: string
+        toewijzingstijd:
+          type: string
+        ingangsdatum:
+          type: string
+        einddatum:
+          type: string
+        redenWijziging:
+          type: string
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        commentaar:
+          type: string
+    wmoJwProduct:
+      type: object
+      properties:
+        categorie:
+          type: string
+        code:
+          type: string
+    wmoJwOmvang:
+      type: object
+      properties:
+        volume:
+          type: string
+        eenheid:
+          type: string
+        frequentie:
+          type: string
     wmoJwClient:
       type: object
       description: clientrecord volgens de Istandaarden
