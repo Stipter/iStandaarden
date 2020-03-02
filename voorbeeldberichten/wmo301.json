@@ -1,0 +1,110 @@
+{
+    "Header": {
+        "Afzender": "0384",
+        "BerichtCode": "414",
+        "BerichtIdentificatie": {
+            "Dagtekening": "2018-07-10",
+            "Identificatie": "123456789012"
+        },
+        // "BerichtSubversie": "4",
+        // "BerichtVersie": "2",
+        "Ontvanger": "42420001"
+    },
+    "Beschikking": {
+        "Afgiftedatum": "2017-07-10",
+        "BeschikkingNummer": "201",
+        "Commentaar": "BESCHIKKING COMMENTAAR",
+        "Einddatum": "2021-07-09",
+        "Grondslagen": {
+            "Grondslag01": "01",
+            "Grondslag02": "01"
+        },
+    "ToegewezenProducten": {
+        "ToegewezenProduct": [
+            {
+                "Commentaar": "Toegewezen product 1 Commentaar ",
+                "Einddatum": "2021-07-09",
+                "Ingangsdatum": "2018-07-10",
+                "Omvang": {
+                    "Eenheid": "04",
+                    "Frequentie": "3",
+                    "Volume": "10"
+                },
+                "Product": {
+                    "Categorie": "01",
+                    "Code": "ABCDE"
+                },
+                "RedenWijziging": "01",
+                "ReferentieAanbieder": "42420001",
+                "ToewijzingNummer": "101",
+                "Toewijzingsdatum": "2018-07-10",
+                "Toewijzingstijd": "12:34:56"
+            },
+            {
+                "Commentaar": "Toegewezen product 2 Commentaar",
+                "Einddatum": "2021-07-09",
+                "Ingangsdatum": "2018-07-10",
+                "Omvang": {
+                    "Eenheid": "16",
+                    "Frequentie": "3",
+                    "Volume": "12"
+                },
+                "Product": {
+                    "Categorie": "02",
+                    "Code": "BCDEF"
+                },
+                "ReferentieAanbieder": "42420001",
+                "ToewijzingNummer": "102",
+                "Toewijzingsdatum": "2018-07-10",
+                "Toewijzingstijd": "12:34:56"
+            }
+        ]
+    },
+    "Client": {
+            "Ingangsdatum": "2017-07-10",
+        },
+        "Bsn": "123456782",
+        "Commentaar": "Client commentaar",
+        "Contactgegevens": {
+            "Contact": {
+                "Adres": {
+                    "Huis": {
+                        "AanduidingWoonadres": "TO",
+                        "Huisletter": "A",
+                        "Huisnummer": "5",
+                        "HuisnummerToevoeging": "BEL"
+                    },
+                    "LandCode": "NL",
+                    "Plaatsnaam": "Amsterdam",
+                    "Postcode": "1077AA",
+                    "Straatnaam": "Van Woustraat"
+                },
+                "Emailadres": "xyz@deg.ghi",
+                "Soort": "03",
+                "Telefoon": {
+                    "Telefoon01": {
+                        "Landnummer": "0031",
+                        "Telefoonnummer": "0201234567"
+                    }
+                }
+            }
+        },
+        "Geboortedatum": {
+            "Datum": "1979-06-10"
+        },
+        "Geslacht": "1",
+        "Naam": {
+            "Geslachtsnaam": {
+                "Achternaam": "Vries",
+                "Voorvoegsel": "de"
+            },
+            "NaamGebruik": "4",
+            "Partnernaam": {
+                "Achternaam": "Jansen",
+                "Voorvoegsel": "van"
+            },
+            "Voorletters": "P",
+            "Voornamen": "Peter"
+        },
+    }
+}

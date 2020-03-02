@@ -4,22 +4,12 @@ info:
   title: iStandaarden koppeling
   description: "Een standaard om gegevensuitwisseling tussen WIZportaal en de iStandaarden."
 
-servers:
-- url: https://{environment}.example.com/project-name/api/v1
-  description: Testomgeving
-  variables:
-    environment:
-      enum:
-        - testen
-        - acceptatie
-      default: testen
-
 paths:
   /api/v23/istandaarden/ijw/301/create:
     post:
       summary: Geeft een JW301 xml bericht als base64 terug
       tags:
-        - IJW
+        - iJw
       parameters:
         - in: body
           name: creeer301Bericht
@@ -34,34 +24,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/creeer301Wrapper'
         '400':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
         '501':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
         '503':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
   /api/v23/istandaarden/iwmo/301/create:
     post:
       summary: Geeft een WMO301 xml bericht als base64 terug
       tags:
-        - IWMO
+        - iWmo
       parameters:
         - in: body
           name: creeer301Bericht
@@ -76,37 +66,37 @@ paths:
               schema:
                 $ref: '#/components/schemas/creeer301Wrapper'
         '400':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
         '501':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
         '503':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
-  /api/v23/istandaarden/codetabellen:
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/v23/istandaarden/codelijsten:
     get:
-      summary: "Geeft de beschikbare collectie van de codetabel terug"
+      summary: "Geeft de beschikbare collectie van de codelijst terug"
       tags:
-        - codetabellen
+        - codelijsten
       responses:
         '200':
-          description: alle beschikbare codetabellen
+          description: alle beschikbare codelijsten
           content:
             application/json:
               schema:
@@ -116,34 +106,34 @@ paths:
                   items:
                     $ref: '#/components/schemas/code'
         '400':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
         '501':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
         '503':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
-  /api/v23/istandaarden/codetabellen/{code}:
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/v23/istandaarden/codelijsten/{code}:
     get:
-      summary: "Geeft de beschikbare codetabel terug"
+      summary: "Geeft de beschikbare codelijst terug"
       tags:
-        - codetabellen
+        - codelijsten
       parameters:
         - in: path
           name: code
@@ -182,7 +172,7 @@ paths:
 
       responses:
         '200':
-          description: de gevraagde codetabel
+          description: de gevraagde codelijst
           content:
             application/json:
               schema:
@@ -190,29 +180,29 @@ paths:
                 items:
                   $ref: '#/components/schemas/code'
         '400':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
         '501':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/501"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
         '503':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
-          $ref: "https://raw.githubusercontent.com/solviteers/api-specificatie/master/common.yaml#/components/responses/default"
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
 
 components:
   schemas:
@@ -220,8 +210,21 @@ components:
       type: object
       description: "Een JW301 json bericht dat getransformeert moet worden naar xml"
       properties:
-        JW301Bericht:
-          type: object
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmoJwClient'
+        relaties:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJwRelatie'
+        beschikking:
+          $ref: '#/components/schemas/wmoJwBeschikking'
+        toegewezenProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJwToegewezenProduct'
+
     creeerWMO301Bericht:
       type: object
       description: "Een WMO301 json bericht dat getransformeert moet worden naar xml"
@@ -230,10 +233,16 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/wmoJwClient'
+        relaties:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJwRelatie'
         beschikking:
           $ref: '#/components/schemas/wmoJwBeschikking'
-        toegewezenProduct:
-          $ref: '#/components/schemas/wmoJwToegewezenProduct'
+        toegewezenProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJwToegewezenProduct'
 
     wmoJwToegewezenProduct:
       type: object
@@ -259,6 +268,7 @@ components:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
           type: string
+
     wmoJwProduct:
       type: object
       properties:
@@ -266,6 +276,7 @@ components:
           type: string
         code:
           type: string
+
     wmoJwOmvang:
       type: object
       properties:
@@ -275,6 +286,7 @@ components:
           type: string
         frequentie:
           type: string
+
     wmoJwClient:
       type: object
       description: clientrecord volgens de Istandaarden
@@ -282,29 +294,186 @@ components:
         bsn:
           type: string
         geboortedatum:
-          type: date
+          $ref: '#/components/schemas/wmoJwGeboortedatum'
         geslacht:
-          type: integer
+          $ref: '#/components/schemas/wmoJwGeslacht'
         naam:
-          type: object
-          properties:
-            geslachtsnaam:
-              $ref: '#/components/schemas/wmoJwGeslachtsnaam'
-            partnernaam:
-              $ref: '#/components/schemas/wmoJwGeslachtsnaam'
-            voornamen:
-              type: string
-            voorletters:
-              type: string
-            naamGebruik:
-              type: string
+          $ref: '#/components/schemas/wmoJwVolledigeNaam'
+        contactAdressen:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJwContactAdres'
         juridischeStatus:
           type: string
           description: Codelijst WJ232
         commentaar:
           type: string
-        contact:
+
+    wmoJwVolledigeNaam:
+      type: object
+      properties:
+        geslachtsnaam:
+          $ref: '#/components/schemas/wmoJwGeslachtsnaam'
+        partnernaam:
+          $ref: '#/components/schemas/wmoJwGeslachtsnaam'
+        voornamen:
+          type: string
+          description: De verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat.
+          maxLength: 200
+        voorletters:
+          type: string
+          description: CS004, aaneengesloten zonder punten of spaties
+          maxLength: 6
+        naamGebruik:
+          type: string
+          description: Codelijst COD700
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+
+      required:
+        - geslachtsnaam
+        - naamGebruik
+
+    wmoJwGeboortedatum:
+      type: object
+      properties:
+        datum:
+          type: string
+          format: date
+        datumGebruik:
+          type: string
+          description: Indicator die aangeeft welk deel van de voorafgaande datum gebruikt mag worden. Zie codelijst COD170
+          enum:
+            - '1'
+            - '2'
+            - '3'
+
+    wmoJwRelatie:
+      type: object
+      properties:
+        nummer:
+          type: string
+          description: Identificerend nummer van de relatie van een client.
+        volgorde:
+          type: integer
+          minimum: 0
+          maximum: 99
+        soort:
+          type: string
+          description: Enum, zie voor mogelijke relatiesoorten codelijst COD472
+          maxLength: 2
+        geboortedatum:
+          $ref: '#/components/schemas/wmoJwGeboortedatum'
+        geslacht:
+          $ref: '#/components/schemas/wmoJwGeslacht'
+        naam:
+          type: string
+        contactAdres:
+          $ref: '#/components/schemas/wmoJwContactAdres'
+      required:
+        - nummer
+        - soort
+        - naam
+
+    wmoJwGeslacht:
+      type: string
+      description: Codelijst COD046
+      enum:
+        - '0'
+        - '1'
+        - '2'
+    wmoJwContactAdres:
+      type: object
+      properties:
+        soort:
+          type: string
+          description: Codelijst COD757
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+        adres:
+          $ref: '#/components/schemas/wmoJwAdresDetails'
+        organisatie:
+          type: string
+          maxLength: 35
+        telefoon:
           type: object
+          properties:
+            telefoon01:
+              $ref: '#/components/schemas/wmoJwTelefoon'
+            telefoon02:
+              $ref: '#/components/schemas/wmoJwTelefoon'
+        emailadres:
+          type: string
+          format: email
+        periode:
+          type: object
+          properties:
+            begindatum:
+              type: string
+              format: date
+            einddatum:
+              type: string
+              format: date
+
+    wmoJwAdresDetails:
+      type: object
+      properties:
+        huis:
+          type: object
+          properties:
+            huisnummer:
+              type: integer
+              minimum: 0
+              maximum: 99999
+            huisletter:
+              type: string
+              maxLength: 1
+            huisnummerToevoeging:
+              type: string
+              maxLength: 4
+            aanduidingWoonadres:
+              type: string
+              enum:
+                - AB
+                - BY
+                - TO
+                - WW
+          required:
+            - huisnummer
+        postcode:
+          type: string
+          description: CD034, Verplicht bij BRP-adres (1) of verblijfadres (3). CS089, bij landCode NL een valide postcode.
+          maxLength: 8
+        straatnaam:
+          type: string
+          maxLength: 24
+        plaatsnaam:
+          type: string
+          maxLength: 80
+        landCode:
+          type: string
+          maxLength: 2
+          description: Enum, zie codelijst COD032. Verplicht als postcode gevuld is.
+
+    wmoJwTelefoon:
+      type: object
+      properties:
+        telefoonnummer:
+          type: number
+          description: CS005
+          maxLength: 15
+        landnummer:
+          type: string
+          maxLength: 4
+
     wmoJwGeslachtsnaam:
       type: object
       properties:
@@ -312,6 +481,7 @@ components:
           type: string
         voorvoegsel:
           type: string
+
     wmoJwBeschikking:
       type: object
       description: berichtheader voor zowel iWmo als iJw.
@@ -333,6 +503,7 @@ components:
           type: string
         commentaar:
           type: string
+
     wmoJwHeader:
       type: object
       description: berichtheader voor zowel iWmo als iJw
@@ -345,6 +516,7 @@ components:
           type: string
         ontvanger:
           type: string
+
     creeer301Wrapper:
       type: object
       description: "Een JW of WMO 301 bericht als base64 met transformeer resultaat"
@@ -353,6 +525,7 @@ components:
           $ref: '#/components/schemas/validationResult'
         xmlAsBase64String:
           type: string
+
     validationResult:
       type: object
       description: "resultaat van het van de gehele actie"
@@ -363,6 +536,7 @@ components:
           $ref: '#/components/schemas/schemaValidationResult'
         transformationValidationResult:
           $ref: '#/components/schemas/transformationValidationResult'
+
     schemaValidationResult:
       type: object
       description: "resultaat van de schema validatie"
@@ -371,6 +545,7 @@ components:
           type: boolean
         details:
           type: string
+
     transformationValidationResult:
       type: object
       description: "resultaat van de transformatie validatie"
@@ -379,6 +554,7 @@ components:
           type: boolean
         details:
           type: string
+
     code:
       type: object
       properties:

@@ -1,5 +1,7 @@
 # iStandaarden
 
+API om iWmo en iJw 301 berichten te maken vanuit WIZportaal.
+
 # Getting started
 
 * cd into this folder
