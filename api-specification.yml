@@ -510,12 +510,17 @@ components:
       properties:
         afzender:
           type: string
+          description: CBS gemeentecode van de gemeente die betrokken is bij de uitvoering van zorg of ondersteuning.
         dagtekening:
           type: string
+          format: date
         identificatie:
           type: string
+          description: Naam of nummer, die ter identificatie aan een totale aanlevering kan worden meegegeven.
+          maxLength: 12
         ontvanger:
           type: string
+          description: Valide AGB code
 
     creeer301Wrapper:
       type: object
