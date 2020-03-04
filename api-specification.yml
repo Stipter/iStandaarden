@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
-  version: 0.0.9
+  version: 1.0.0
   title: iStandaarden koppeling
   description: "Een standaard om gegevensuitwisseling tussen WIZportaal en de iStandaarden."
 
 paths:
-  /api/v23/istandaarden/ijw/301/create:
+  /api/ijw/301/creeer:
     post:
       summary: Geeft een JW301 xml bericht als base64 terug
       tags:
@@ -47,7 +47,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/v23/istandaarden/iwmo/301/create:
+  /api/iwmo/301/creeer:
     post:
       summary: Geeft een WMO301 xml bericht als base64 terug
       tags:
@@ -89,7 +89,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/v23/istandaarden/codelijsten:
+  /api/codelijsten/:
     get:
       summary: "Geeft de beschikbare collectie van de codelijst terug"
       tags:
@@ -129,7 +129,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/v23/istandaarden/codelijsten/{code}:
+  /api/codelijsten/{code}:
     get:
       summary: "Geeft de beschikbare codelijst terug"
       tags:
@@ -140,36 +140,6 @@ paths:
           required: true
           schema:
             type: string
-            enum:
-              - COD032
-              - COD043
-              - COD046
-              - COD170
-              - COD260
-              - COD327
-              - COD363
-              - COD467
-              - COD472
-              - COD539
-              - COD700
-              - COD736
-              - COD747
-              - COD749
-              - COD757
-              - COD825
-              - COD828
-              - COD833
-              - JZ002
-              - JZ020
-              - JZ588
-              - NUM061
-              - WJ001
-              - WJ003
-              - WJ232
-              - WJ756
-              - WMO106
-              - WMO757
-
       responses:
         '200':
           description: de gevraagde codelijst
