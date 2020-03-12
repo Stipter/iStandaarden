@@ -342,7 +342,7 @@ components:
         geslacht:
           $ref: '#/components/schemas/wmoJwGeslacht'
         naam:
-          type: string
+          $ref: '#/components/schemas/wmoJwVolledigeNaam'
         contactAdres:
           $ref: '#/components/schemas/wmoJwContactAdres'
       required:
