@@ -2,7 +2,10 @@ openapi: 3.0.2
 info:
   version: 1.0.0
   title: iStandaarden koppeling
-  description: "Een standaard om gegevensuitwisseling tussen WIZportaal en de iStandaarden."
+  description: "Een standaard voor gegevensuitwisseling tussen applicaties en de iStandaarden.
+                Ondersteunde standaarden:
+                 * iWMO 2.4
+                 * iJW 2.4"
 
 paths:
   /api/ijw/301/creeer:
@@ -174,6 +177,7 @@ paths:
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
 
+
 components:
   schemas:
     creeerJW301Bericht:
@@ -193,7 +197,7 @@ components:
         toegewezenProducten:
           type: array
           items:
-            $ref: '#/components/schemas/wmoJwToegewezenProduct'
+            $ref: '#/components/schemas/jwToegewezenProduct'
 
     creeerWMO301Bericht:
       type: object
@@ -212,9 +216,9 @@ components:
         toegewezenProducten:
           type: array
           items:
-            $ref: '#/components/schemas/wmoJwToegewezenProduct'
+            $ref: '#/components/schemas/wmoToegewezenProduct'
 
-    wmoJwToegewezenProduct:
+    jwToegewezenProduct:
       type: object
       description: Toegewezen product
       properties:
@@ -223,7 +227,7 @@ components:
         referentieAanbieder:
           type: string
         product:
-          $ref: '#/components/schemas/wmoJwProduct'
+          $ref: '#/components/schemas/jwProduct'
         toewijzingsdatum:
           type: string
         toewijzingstijd:
@@ -234,16 +238,123 @@ components:
           type: string
         redenWijziging:
           type: string
+          nullable: true
+          default: null
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+            - '05'
+            - '06'
+            - '07'
+            - '08'
+            - '09'
+            - '10'
+            - '11'
+            - null
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
           type: string
 
-    wmoJwProduct:
+    jwProduct:
       type: object
       properties:
         categorie:
           type: string
+          enum:
+            - '31'
+            - '32'
+            - '33'
+            - '34'
+            - '35'
+            - '36'
+            - '37'
+            - '38'
+            - '40'
+            - '41'
+            - '42'
+            - '43'
+            - '44'
+            - '45'
+            - '46'
+            - '47'
+            - '48'
+            - '49'
+            - '50'
+            - '51'
+            - '52'
+            - '53'
+            - '54'
+            - '55'
+        code:
+          type: string
+
+    wmoToegewezenProduct:
+      type: object
+      description: Toegewezen product
+      properties:
+        toewijzingNummer:
+          type: string
+        referentieAanbieder:
+          type: string
+        product:
+          $ref: '#/components/schemas/wmoProduct'
+        toewijzingsdatum:
+          type: string
+        toewijzingstijd:
+          type: string
+        ingangsdatum:
+          type: string
+        einddatum:
+          type: string
+        redenWijziging:
+          type: string
+          nullable: true
+          default: null
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+            - '05'
+            - '06'
+            - '07'
+            - '08'
+            - '09'
+            - '10'
+            - '11'
+            - null
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        commentaar:
+          type: string
+
+    wmoProduct:
+      type: object
+      properties:
+        categorie:
+          type: string
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+            - '05'
+            - '06'
+            - '07'
+            - '08'
+            - '09'
+            - '10'
+            - '11'
+            - '12'
+            - '13'
+            - '14'
+            - '15'
+            - '16'
+            - '17'
+            - '18'
         code:
           type: string
 
@@ -254,8 +365,27 @@ components:
           type: string
         eenheid:
           type: string
+          description: Eenheid. Zie codelijst WJ756
+          enum:
+            - '01'
+            - '04'
+            - '14'
+            - '16'
+            - '21'
+            - '81'
+            - '82'
+            - '83'
+
         frequentie:
           type: string
+          description: Frequentie. Zie codelijst WMO757
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
 
     wmoJwClient:
       type: object
@@ -266,7 +396,12 @@ components:
         geboortedatum:
           $ref: '#/components/schemas/wmoJwGeboortedatum'
         geslacht:
-          $ref: '#/components/schemas/wmoJwGeslacht'
+          type: string
+          description: Codelijst COD046
+          enum:
+            - '0'
+            - '1'
+            - '2'
         naam:
           $ref: '#/components/schemas/wmoJwVolledigeNaam'
         contactAdressen:
@@ -276,6 +411,17 @@ components:
         juridischeStatus:
           type: string
           description: Codelijst WJ232
+          nullable: true
+          default: null
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+            - '05'
+            - '11'
+            - '12'
+            - null
         commentaar:
           type: string
 
@@ -318,10 +464,13 @@ components:
         datumGebruik:
           type: string
           description: Indicator die aangeeft welk deel van de voorafgaande datum gebruikt mag worden. Zie codelijst COD170
+          nullable: true
+          default: null
           enum:
             - '1'
             - '2'
             - '3'
+            - null
 
     wmoJwRelatie:
       type: object
@@ -335,12 +484,44 @@ components:
           maximum: 99
         soort:
           type: string
-          description: Enum, zie voor mogelijke relatiesoorten codelijst COD472
-          maxLength: 2
+          description: Soort relatie. Zie codelijst COD472
+          enum:
+            - '03'
+            - '04'
+            - '05'
+            - '06'
+            - '07'
+            - '08'
+            - '09'
+            - '10'
+            - '11'
+            - '12'
+            - '13'
+            - '14'
+            - '15'
+            - '16'
+            - '17'
+            - '18'
+            - '19'
+            - '20'
+            - '21'
+            - '22'
+            - '23'
+            - '24'
+            - '25'
+
         geboortedatum:
           $ref: '#/components/schemas/wmoJwGeboortedatum'
         geslacht:
-          $ref: '#/components/schemas/wmoJwGeslacht'
+          type: string
+          description: Codelijst COD046
+          nullable: true
+          default: null
+          enum:
+            - '0'
+            - '1'
+            - '2'
+            - null
         naam:
           $ref: '#/components/schemas/wmoJwVolledigeNaam'
         contactAdres:
@@ -350,13 +531,6 @@ components:
         - soort
         - naam
 
-    wmoJwGeslacht:
-      type: string
-      description: Codelijst COD046
-      enum:
-        - '0'
-        - '1'
-        - '2'
     wmoJwContactAdres:
       type: object
       properties:
@@ -411,11 +585,14 @@ components:
               maxLength: 4
             aanduidingWoonadres:
               type: string
+              nullable: true
+              default: null
               enum:
                 - AB
                 - BY
                 - TO
                 - WW
+                - null
           required:
             - huisnummer
         postcode:
@@ -430,8 +607,260 @@ components:
           maxLength: 80
         landCode:
           type: string
-          maxLength: 2
-          description: Enum, zie codelijst COD032. Verplicht als postcode gevuld is.
+          description: Land, zie codelijst COD032. Verplicht als postcode gevuld is.
+          nullable: true
+          default: null
+          enum:
+            - 'AD'
+            - 'AE'
+            - 'AF'
+            - 'AG'
+            - 'AI'
+            - 'AL'
+            - 'AM'
+            - 'AO'
+            - 'AQ'
+            - 'AR'
+            - 'AS'
+            - 'AT'
+            - 'AU'
+            - 'AW'
+            - 'AX'
+            - 'AZ'
+            - 'BA'
+            - 'BB'
+            - 'BD'
+            - 'BE'
+            - 'BF'
+            - 'BG'
+            - 'BH'
+            - 'BI'
+            - 'BJ'
+            - 'BL'
+            - 'BM'
+            - 'BN'
+            - 'BO'
+            - 'BQ'
+            - 'BR'
+            - 'BS'
+            - 'BT'
+            - 'BV'
+            - 'BW'
+            - 'BY'
+            - 'BZ'
+            - 'CA'
+            - 'CC'
+            - 'CD'
+            - 'CF'
+            - 'CG'
+            - 'CH'
+            - 'CI'
+            - 'CK'
+            - 'CL'
+            - 'CM'
+            - 'CN'
+            - 'CO'
+            - 'CR'
+            - 'CU'
+            - 'CV'
+            - 'CW'
+            - 'CX'
+            - 'CY'
+            - 'CZ'
+            - 'DE'
+            - 'DJ'
+            - 'DK'
+            - 'DM'
+            - 'DO'
+            - 'DZ'
+            - 'EC'
+            - 'EE'
+            - 'EG'
+            - 'EH'
+            - 'ER'
+            - 'ES'
+            - 'ET'
+            - 'FI'
+            - 'FJ'
+            - 'FK'
+            - 'FM'
+            - 'FO'
+            - 'FR'
+            - 'GA'
+            - 'GB'
+            - 'GD'
+            - 'GE'
+            - 'GF'
+            - 'GG'
+            - 'GH'
+            - 'GI'
+            - 'GL'
+            - 'GM'
+            - 'GN'
+            - 'GP'
+            - 'GQ'
+            - 'GR'
+            - 'GS'
+            - 'GT'
+            - 'GU'
+            - 'GW'
+            - 'GY'
+            - 'HK'
+            - 'HM'
+            - 'HN'
+            - 'HR'
+            - 'HT'
+            - 'HU'
+            - 'ID'
+            - 'IE'
+            - 'IL'
+            - 'IM'
+            - 'IN'
+            - 'IO'
+            - 'IQ'
+            - 'IR'
+            - 'IS'
+            - 'IT'
+            - 'JE'
+            - 'JM'
+            - 'JO'
+            - 'JP'
+            - 'KE'
+            - 'KG'
+            - 'KH'
+            - 'KI'
+            - 'KM'
+            - 'KN'
+            - 'KP'
+            - 'KR'
+            - 'KW'
+            - 'KY'
+            - 'KZ'
+            - 'LA'
+            - 'LB'
+            - 'LC'
+            - 'LI'
+            - 'LK'
+            - 'LR'
+            - 'LS'
+            - 'LT'
+            - 'LU'
+            - 'LV'
+            - 'LY'
+            - 'MA'
+            - 'MC'
+            - 'MD'
+            - 'ME'
+            - 'MF'
+            - 'MG'
+            - 'MH'
+            - 'MK'
+            - 'ML'
+            - 'MM'
+            - 'MN'
+            - 'MO'
+            - 'MP'
+            - 'MQ'
+            - 'MR'
+            - 'MS'
+            - 'MT'
+            - 'MU'
+            - 'MV'
+            - 'MW'
+            - 'MX'
+            - 'MY'
+            - 'MZ'
+            - 'NA'
+            - 'NC'
+            - 'NE'
+            - 'NF'
+            - 'NG'
+            - 'NI'
+            - 'NL'
+            - 'NO'
+            - 'NP'
+            - 'NR'
+            - 'NU'
+            - 'NZ'
+            - 'OM'
+            - 'PA'
+            - 'PE'
+            - 'PF'
+            - 'PG'
+            - 'PH'
+            - 'PK'
+            - 'PL'
+            - 'PM'
+            - 'PN'
+            - 'PR'
+            - 'PS'
+            - 'PT'
+            - 'PW'
+            - 'PY'
+            - 'QA'
+            - 'RE'
+            - 'RO'
+            - 'RS'
+            - 'RU'
+            - 'RW'
+            - 'SA'
+            - 'SB'
+            - 'SC'
+            - 'SD'
+            - 'SE'
+            - 'SG'
+            - 'SH'
+            - 'SI'
+            - 'SJ'
+            - 'SK'
+            - 'SL'
+            - 'SM'
+            - 'SN'
+            - 'SO'
+            - 'SR'
+            - 'SS'
+            - 'ST'
+            - 'SV'
+            - 'SX'
+            - 'SY'
+            - 'SZ'
+            - 'TC'
+            - 'TD'
+            - 'TF'
+            - 'TG'
+            - 'TH'
+            - 'TJ'
+            - 'TK'
+            - 'TL'
+            - 'TM'
+            - 'TN'
+            - 'TO'
+            - 'TR'
+            - 'TT'
+            - 'TV'
+            - 'TW'
+            - 'TZ'
+            - 'UA'
+            - 'UG'
+            - 'UM'
+            - 'US'
+            - 'UY'
+            - 'UZ'
+            - 'VA'
+            - 'VC'
+            - 'VE'
+            - 'VG'
+            - 'VI'
+            - 'VN'
+            - 'VU'
+            - 'WF'
+            - 'WS'
+            - 'YE'
+            - 'YT'
+            - 'ZA'
+            - 'ZM'
+            - 'ZW'
+            - null
 
     wmoJwTelefoon:
       type: object
@@ -461,10 +890,29 @@ components:
         grondslagen:
           type: object
           properties:
-            grondslag1:
+            grondslag01:
               type: string
-            grondslag2:
+              enum:
+                - '01'
+                - '02'
+                - '03'
+                - '04'
+                - '05'
+                - '06'
+                - '07'
+            grondslag02:
               type: string
+              nullable: true
+              default: null
+              enum:
+                - '01'
+                - '02'
+                - '03'
+                - '04'
+                - '05'
+                - '06'
+                - '07'
+                - null
         afgiftedatum:
           type: string
         ingangsdatum:
@@ -491,15 +939,6 @@ components:
         ontvanger:
           type: string
           description: Valide AGB code
-
-    creeer301Wrapper:
-      type: object
-      description: "Een JW of WMO 301 bericht als base64 met transformeer resultaat"
-      properties:
-        validationResult:
-          $ref: '#/components/schemas/validationResult'
-        xmlAsBase64String:
-          type: string
 
     validationResult:
       type: object
