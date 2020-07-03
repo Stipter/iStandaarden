@@ -6,183 +6,185 @@ info:
                 Ondersteunde standaarden:
                  * iWMO 2.4
                  * iJW 2.4"
-
-paths:
-  /api/ijw/301/creeer:
-    post:
-      summary: Geeft een JW301 xml bericht als base64 terug
-      tags:
-        - iJw
-      parameters:
-        - in: body
-          name: creeer301Bericht
-          required: true
-          schema:
-            $ref: '#/components/schemas/creeerJW301Bericht'
-      responses:
-        '200':
-          description: Een collectie aanvragen met beschikkingen en producten
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/creeer301Wrapper'
-        '400':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
-        '406':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
-        '409':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
-        '410':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
-        '415':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
-        '429':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
-        '500':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
-        'default':
+                 
+paths:	
+  /api/ijw/301/creeer:	
+    post:	
+      summary: Geeft een JW301 xml bericht als base64 terug	
+      tags:	
+        - iJw	
+      parameters:	
+        - in: body	
+          name: creeer301Bericht	
+          required: true	
+          schema:	
+            $ref: '#/components/schemas/creeerJW301Bericht'	
+      responses:	
+        '200':	
+          description: Een collectie aanvragen met beschikkingen en producten	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeer301Wrapper'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/iwmo/301/creeer:	
+    post:	
+      summary: Geeft een WMO301 xml bericht als base64 terug	
+      tags:	
+        - iWmo	
+      parameters:	
+        - in: body	
+          name: creeer301Bericht	
+          required: true	
+          schema:	
+            $ref: '#/components/schemas/creeerWMO301Bericht'	
+      responses:	
+        '200':	
+          description: Een collectie aanvragen met beschikkingen en producten	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeer301Wrapper'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/codelijsten/:	
+    get:	
+      summary: "Geeft de beschikbare collectie van de codelijst terug"	
+      tags:	
+        - codelijsten	
+      responses:	
+        '200':	
+          description: alle beschikbare codelijsten	
+          content:	
+            application/json:	
+              schema:	
+                type: array	
+                items:	
+                  type: array	
+                  items:	
+                    $ref: '#/components/schemas/code'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/codelijsten/{code}:	
+    get:	
+      summary: "Geeft de beschikbare codelijst terug"	
+      tags:	
+        - codelijsten	
+      parameters:	
+        - in: path	
+          name: code	
+          required: true	
+          schema:	
+            type: string	
+      responses:	
+        '200':	
+          description: de gevraagde codelijst	
+          content:	
+            application/json:	
+              schema:	
+                type: array	
+                items:	
+                  $ref: '#/components/schemas/code'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/iwmo/301/creeer:
-    post:
-      summary: Geeft een WMO301 xml bericht als base64 terug
-      tags:
-        - iWmo
-      parameters:
-        - in: body
-          name: creeer301Bericht
-          required: true
-          schema:
-            $ref: '#/components/schemas/creeerWMO301Bericht'
-      responses:
-        '200':
-          description: Een collectie aanvragen met beschikkingen en producten
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/creeer301Wrapper'
-        '400':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
-        '406':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
-        '409':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
-        '410':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
-        '415':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
-        '429':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
-        '500':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/codelijsten/:
-    get:
-      summary: "Geeft de beschikbare collectie van de codelijst terug"
-      tags:
-        - codelijsten
-      responses:
-        '200':
-          description: alle beschikbare codelijsten
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/code'
-        '400':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
-        '406':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
-        '409':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
-        '410':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
-        '415':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
-        '429':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
-        '500':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/codelijsten/{code}:
-    get:
-      summary: "Geeft de beschikbare codelijst terug"
-      tags:
-        - codelijsten
-      parameters:
-        - in: path
-          name: code
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: de gevraagde codelijst
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/code'
-        '400':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
-        '406':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
-        '409':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
-        '410':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
-        '415':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
-        '429':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
-        '500':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-
-
+          
+          
+          
 components:
   schemas:
     creeerJW301Bericht:
       type: object
       description: "Een JW301 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
       properties:
         header:
           $ref: '#/components/schemas/wmoJwHeader'
@@ -202,6 +204,7 @@ components:
     creeerWMO301Bericht:
       type: object
       description: "Een WMO301 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
       properties:
         header:
           $ref: '#/components/schemas/wmoJwHeader'
@@ -220,7 +223,8 @@ components:
 
     jwToegewezenProduct:
       type: object
-      description: Toegewezen product
+      description: "Toegewezen product"
+      additionalProperties: false
       properties:
         toewijzingNummer:
           type: string
@@ -260,6 +264,7 @@ components:
 
     jwProduct:
       type: object
+      additionalProperties: false
       properties:
         categorie:
           type: string
@@ -293,7 +298,8 @@ components:
 
     wmoToegewezenProduct:
       type: object
-      description: Toegewezen product
+      description: "Toegewezen product"
+      additionalProperties: false
       properties:
         toewijzingNummer:
           type: string
@@ -333,6 +339,7 @@ components:
 
     wmoProduct:
       type: object
+      additionalProperties: false
       properties:
         categorie:
           type: string
@@ -360,6 +367,7 @@ components:
 
     wmoJwOmvang:
       type: object
+      additionalProperties: false
       properties:
         volume:
           type: string
@@ -389,7 +397,8 @@ components:
 
     wmoJwClient:
       type: object
-      description: clientrecord volgens de Istandaarden
+      description: "clientrecord volgens de Istandaarden"
+      additionalProperties: false
       properties:
         bsn:
           type: string
@@ -427,6 +436,7 @@ components:
 
     wmoJwVolledigeNaam:
       type: object
+      additionalProperties: false
       properties:
         geslachtsnaam:
           $ref: '#/components/schemas/wmoJwGeslachtsnaam'
@@ -457,6 +467,7 @@ components:
 
     wmoJwGeboortedatum:
       type: object
+      additionalProperties: false
       properties:
         datum:
           type: string
@@ -474,6 +485,7 @@ components:
 
     wmoJwRelatie:
       type: object
+      additionalProperties: false
       properties:
         nummer:
           type: string
@@ -533,6 +545,7 @@ components:
 
     wmoJwContactAdres:
       type: object
+      additionalProperties: false
       properties:
         soort:
           type: string
@@ -569,6 +582,7 @@ components:
 
     wmoJwAdresDetails:
       type: object
+      additionalProperties: false
       properties:
         huis:
           type: object
@@ -864,9 +878,10 @@ components:
 
     wmoJwTelefoon:
       type: object
+      additionalProperties: false
       properties:
         telefoonnummer:
-          type: number
+          type: string
           description: CS005
           maxLength: 15
         landnummer:
@@ -875,6 +890,7 @@ components:
 
     wmoJwGeslachtsnaam:
       type: object
+      additionalProperties: false
       properties:
         achternaam:
           type: string
@@ -883,7 +899,8 @@ components:
 
     wmoJwBeschikking:
       type: object
-      description: berichtheader voor zowel iWmo als iJw.
+      additionalProperties: false
+      description: "berichtheader voor zowel iWmo als iJw."
       properties:
         beschikkingNummer:
           type: string
@@ -924,7 +941,8 @@ components:
 
     wmoJwHeader:
       type: object
-      description: berichtheader voor zowel iWmo als iJw
+      additionalProperties: false
+      description: "berichtheader voor zowel iWmo als iJw"
       properties:
         afzender:
           type: string
@@ -942,6 +960,7 @@ components:
 
     validationResult:
       type: object
+      additionalProperties: false
       description: "resultaat van het van de gehele actie"
       properties:
         isValid:
@@ -953,6 +972,7 @@ components:
 
     schemaValidationResult:
       type: object
+      additionalProperties: false
       description: "resultaat van de schema validatie"
       properties:
         isValid:
@@ -962,6 +982,7 @@ components:
 
     transformationValidationResult:
       type: object
+      additionalProperties: false
       description: "resultaat van de transformatie validatie"
       properties:
         isValid:
@@ -971,6 +992,7 @@ components:
 
     code:
       type: object
+      additionalProperties: false
       properties:
         code:
           type: string
