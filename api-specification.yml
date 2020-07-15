@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
-  version: 1.0.0
+  version: 3.0.0
   title: iStandaarden koppeling
   description: "Een standaard voor gegevensuitwisseling tussen applicaties en de iStandaarden.
                 Ondersteunde standaarden:
-                 * iWMO 2.4
-                 * iJW 2.4"
+                 * iWMO 3.0
+                 * iJW 3.0"
                  
 paths:	
   /api/ijw/301/creeer:	
@@ -21,7 +21,7 @@ paths:
             $ref: '#/components/schemas/creeerJW301Bericht'	
       responses:	
         '200':	
-          description: Een collectie aanvragen met beschikkingen en producten	
+          description: Een collectie aanvragen met producten	
           content:	
             application/json:	
               schema:	
@@ -63,7 +63,7 @@ paths:
             $ref: '#/components/schemas/creeerWMO301Bericht'	
       responses:	
         '200':	
-          description: Een collectie aanvragen met beschikkingen en producten	
+          description: Een collectie aanvragen met producten	
           content:	
             application/json:	
               schema:	
@@ -194,8 +194,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/wmoJwRelatie'
-        beschikking:
-          $ref: '#/components/schemas/wmoJwBeschikking'
         toegewezenProducten:
           type: array
           items:
@@ -214,8 +212,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/wmoJwRelatie'
-        beschikking:
-          $ref: '#/components/schemas/wmoJwBeschikking'
         toegewezenProducten:
           type: array
           items:
@@ -257,6 +253,8 @@ components:
             - '10'
             - '11'
             - null
+        budget:
+          type: integer
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
@@ -332,6 +330,8 @@ components:
             - '10'
             - '11'
             - null
+        budget:
+          type: integer
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
@@ -383,6 +383,7 @@ components:
             - '81'
             - '82'
             - '83'
+            - '84'
 
         frequentie:
           type: string
@@ -390,9 +391,7 @@ components:
           enum:
             - '1'
             - '2'
-            - '3'
             - '4'
-            - '5'
             - '6'
 
     wmoJwClient:
@@ -895,48 +894,6 @@ components:
         achternaam:
           type: string
         voorvoegsel:
-          type: string
-
-    wmoJwBeschikking:
-      type: object
-      additionalProperties: false
-      description: "berichtheader voor zowel iWmo als iJw."
-      properties:
-        beschikkingNummer:
-          type: string
-        grondslagen:
-          type: object
-          properties:
-            grondslag01:
-              type: string
-              enum:
-                - '01'
-                - '02'
-                - '03'
-                - '04'
-                - '05'
-                - '06'
-                - '07'
-            grondslag02:
-              type: string
-              nullable: true
-              default: null
-              enum:
-                - '01'
-                - '02'
-                - '03'
-                - '04'
-                - '05'
-                - '06'
-                - '07'
-                - null
-        afgiftedatum:
-          type: string
-        ingangsdatum:
-          type: string
-        einddatum:
-          type: string
-        commentaar:
           type: string
 
     wmoJwHeader:
