@@ -418,10 +418,10 @@ components:
             - '2'
         naam:
           $ref: '#/components/schemas/wmoJwVolledigeNaam'
-        contactAdressen:
+        contacten:
           type: array
           items:
-            $ref: '#/components/schemas/wmoJwContactAdres'
+            $ref: '#/components/schemas/wmoJwContact'
         juridischeStatus:
           type: string
           description: Codelijst WJ232
@@ -541,14 +541,14 @@ components:
             - null
         naam:
           $ref: '#/components/schemas/wmoJwVolledigeNaam'
-        contactAdres:
-          $ref: '#/components/schemas/wmoJwContactAdres'
+        contact:
+          $ref: '#/components/schemas/wmoJwContact'
       required:
         - nummer
         - soort
         - naam
 
-    wmoJwContactAdres:
+    wmoJwContact:
       type: object
       additionalProperties: false
       properties:
@@ -561,7 +561,7 @@ components:
             - '03'
             - '04'
         adres:
-          $ref: '#/components/schemas/wmoJwAdresDetails'
+          $ref: '#/components/schemas/wmoJwAdres'
         organisatie:
           type: string
           maxLength: 35
@@ -585,7 +585,7 @@ components:
               type: string
               format: date
 
-    wmoJwAdresDetails:
+    wmoJwAdres:
       type: object
       additionalProperties: false
       properties:
