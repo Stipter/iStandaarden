@@ -913,7 +913,7 @@ components:
         dagtekening:
           type: string
           format: date
-        identificatie:
+        berichtIdentificatie:
           type: string
           description: Naam of nummer, die ter identificatie aan een totale aanlevering kan worden meegegeven.
           maxLength: 12
