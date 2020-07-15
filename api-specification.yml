@@ -255,6 +255,9 @@ components:
             - null
         budget:
           type: integer
+          minimum: 0
+          nullable: true
+          default: null
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
@@ -332,6 +335,9 @@ components:
             - null
         budget:
           type: integer
+          minimum: 0
+          nullable: true
+          default: null
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
         commentaar:
