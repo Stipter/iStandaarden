@@ -6,19 +6,10 @@
             "Dagtekening": "2018-07-10",
             "Identificatie": "123456789012"
         },
-        // "BerichtSubversie": "4",
-        // "BerichtVersie": "2",
+        // "BerichtSubversie": "0",
+        // "BerichtVersie": "3",
         "Ontvanger": "42420001"
     },
-    "Beschikking": {
-        "Afgiftedatum": "2017-07-10",
-        "BeschikkingNummer": "201",
-        "Commentaar": "BESCHIKKING COMMENTAAR",
-        "Einddatum": "2021-07-09",
-        "Grondslagen": {
-            "Grondslag01": "01",
-            "Grondslag02": "01"
-        },
     "ToegewezenProducten": {
         "ToegewezenProduct": [
             {
@@ -27,7 +18,7 @@
                 "Ingangsdatum": "2018-07-10",
                 "Omvang": {
                     "Eenheid": "04",
-                    "Frequentie": "3",
+                    "Frequentie": "4",
                     "Volume": "10"
                 },
                 "Product": {
@@ -46,7 +37,7 @@
                 "Ingangsdatum": "2018-07-10",
                 "Omvang": {
                     "Eenheid": "16",
-                    "Frequentie": "3",
+                    "Frequentie": "4",
                     "Volume": "12"
                 },
                 "Product": {
