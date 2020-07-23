@@ -226,6 +226,7 @@ components:
           type: string
         referentieAanbieder:
           type: string
+          maxlength: 36
         product:
           $ref: '#/components/schemas/jwProduct'
         toewijzingsdatum:
@@ -306,6 +307,7 @@ components:
           type: string
         referentieAanbieder:
           type: string
+          maxLength: 36
         product:
           $ref: '#/components/schemas/wmoProduct'
         toewijzingsdatum:
@@ -575,6 +577,7 @@ components:
         emailadres:
           type: string
           format: email
+          maxLength: 80
         periode:
           type: object
           properties:
@@ -899,8 +902,10 @@ components:
       properties:
         achternaam:
           type: string
+          maxLength: 200
         voorvoegsel:
           type: string
+          maxLength: 10
 
     wmoJwHeader:
       type: object
