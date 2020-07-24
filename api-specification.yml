@@ -571,6 +571,7 @@ components:
           maxLength: 35
         telefoon:
           type: object
+          additionalProperties: false
           properties:
             telefoon01:
               $ref: '#/components/schemas/wmoJwTelefoon'
@@ -582,6 +583,7 @@ components:
           maxLength: 80
         periode:
           type: object
+          additionalProperties: false
           properties:
             begindatum:
               type: string
@@ -596,6 +598,7 @@ components:
       properties:
         huis:
           type: object
+          additionalProperties: false
           properties:
             huisnummer:
               type: integer
