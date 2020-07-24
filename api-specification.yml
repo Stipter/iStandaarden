@@ -378,7 +378,9 @@ components:
       additionalProperties: false
       properties:
         volume:
-          type: string
+          type: integer
+          minimum: 0
+          maximum: 99999999
         eenheid:
           type: string
           description: Eenheid. Zie codelijst WJ756
