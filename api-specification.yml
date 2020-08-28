@@ -176,23 +176,24 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
         'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-  /api/ijw/315/valideer:	
+  /api/ijw/315/creeer:	
     post:	
-      summary: valideer een JW315 xml bericht (base64 encoded)
+      summary: Valideer een JW315 xml bericht (base64 encoded) en transformeer het naar JSON
       tags:	
         - iJw
       parameters:	
         - in: body	
           name: 315XmlAsBase64String
           required: true
-          type: string
+          schema:
+            type: string
       responses:	
         '200':	
-          description: het resultaat van de validatie	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 315 bericht als JSON terug
           content:	
             application/json:	
               schema:	
-                $ref: '#/components/schemas/validationResult'	
+                $ref: '#/components/schemas/creeerJW315Wrapper'
         '400':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
         '401':	
@@ -217,23 +218,24 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
         'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
-  /api/iwmo/315/valideer:	
+  /api/iwmo/315/creeer:	
     post:	
-      summary: valideer een WMO315 xml bericht (base64 encoded)
+      summary: Valideer een WMO315 xml bericht (base64 encoded) en transformeer het naar JSON
       tags:	
         - iWmo
       parameters:	
         - in: body	
           name: 315XmlAsBase64String
           required: true
-          type: string
+          schema:
+            type: string
       responses:	
         '200':	
-          description: het resultaat van de validatie	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 315 bericht terug als JSON
           content:	
             application/json:	
               schema:	
-                $ref: '#/components/schemas/validationResult'	
+                $ref: '#/components/schemas/creeerWMO315Wrapper'	
         '400':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
         '401':	
@@ -297,6 +299,54 @@ components:
           items:
             $ref: '#/components/schemas/wmoToegewezenProduct'
 
+    creeerWMO315Wrapper:
+      type: object
+      description: "Een WMO301 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
+      additionalProperties: false
+      properties:
+        wmo315Json:
+          $ref: '#/components/schemas/wmo315Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+
+    creeerJW315Wrapper:
+      type: object
+      description: "Een JW301 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
+      additionalProperties: false
+      properties:
+        jw315Json:
+          $ref: '#/components/schemas/jw315Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+
+    jw315Json:
+      type: object
+      description: "Een JW315 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/jw315Client'
+        aangevraagdeProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/jwAangevraagdProduct'
+
+    wmo315Json:
+      type: object
+      description: "Een WMO315 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmo315Client'
+        aangevraagdeProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoAangevraagdProduct'
+
     jwToegewezenProduct:
       type: object
       description: "Toegewezen product"
@@ -341,6 +391,39 @@ components:
           default: null
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        commentaar:
+          type: string
+
+    jwAangevraagdProduct:
+      type: object
+      description: "Aangevraagd product"
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: string
+          maxLength: 36
+        beschikkingNummer:
+          type: string
+          maxLength: 9
+        product:
+          $ref: '#/components/schemas/jwProduct'
+        beschikkingIngangsdatum:
+          type: string
+          format: date
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+        toewijzingEinddatum:
+          type: string
+          format: date
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        raamContract:
+          type: string
+          description: Codelijst COD260
+          enum:
+            - '1'
+            - '2'
         commentaar:
           type: string
 
@@ -422,6 +505,39 @@ components:
           default: null
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        commentaar:
+          type: string
+
+    wmoAangevraagdProduct:
+      type: object
+      description: "Aangevraagd product"
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: string
+          maxLength: 36
+        beschikkingNummer:
+          type: string
+          maxLength: 9
+        product:
+          $ref: '#/components/schemas/wmoProduct'
+        beschikkingIngangsdatum:
+          type: string
+          format: date
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+        toewijzingEinddatum:
+          type: string
+          format: date
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        raamContract:
+          type: string
+          description: Codelijst COD260
+          enum:
+            - '1'
+            - '2'
         commentaar:
           type: string
 
@@ -525,6 +641,54 @@ components:
         commentaar:
           type: string
 
+    jw315Client:
+      type: object
+      description: "clientrecord uit JW315 berichtklassen volgens de Istandaarden"
+      additionalProperties: false
+      properties:
+        bsn:
+          type: string
+        geboortedatum:
+          $ref: '#/components/schemas/wmoJwGeboortedatum'
+        geslacht:
+          type: string
+          description: Codelijst COD046
+          enum:
+            - '0'
+            - '1'
+            - '2'
+        naam:
+          $ref: '#/components/schemas/wmoJwVerkorteNaam'
+        gezagsdragerBekend:
+          type: string
+          description: Codelijst COD260
+          enum:
+            - '1'
+            - '2'
+        commentaar:
+          type: string
+
+    wmo315Client:
+      type: object
+      description: "clientrecord uit WMO315 berichtklassen volgens de Istandaarden"
+      additionalProperties: false
+      properties:
+        bsn:
+          type: string
+        geboortedatum:
+          $ref: '#/components/schemas/wmoJwGeboortedatum'
+        geslacht:
+          type: string
+          description: Codelijst COD046
+          enum:
+            - '0'
+            - '1'
+            - '2'
+        naam:
+          $ref: '#/components/schemas/wmoJwVerkorteNaam'
+        commentaar:
+          type: string
+
     wmoJwVolledigeNaam:
       type: object
       additionalProperties: false
@@ -555,6 +719,23 @@ components:
       required:
         - geslachtsnaam
         - naamGebruik
+
+    wmoJwVerkorteNaam:
+      type: object
+      additionalProperties: false
+      properties:
+        geslachtsnaam:
+          $ref: '#/components/schemas/wmoJwGeslachtsnaam'
+        voornamen:
+          type: string
+          description: De verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat.
+          maxLength: 200
+        voorletters:
+          type: string
+          description: CS004, aaneengesloten zonder punten of spaties
+          maxLength: 6
+      required:
+        - geslachtsnaam
 
     wmoJwGeboortedatum:
       type: object
@@ -1013,6 +1194,16 @@ components:
           type: string
           description: Valide AGB code
 
+    creeer301Wrapper:
+      type: object
+      additionalProperties: false
+      description: wrapper object met het validatie resultaat en het aangemaakte XML object als base64 encoded string
+      properties:
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        xmlAsBase64String:
+          type: string
+      
     validationResult:
       type: object
       additionalProperties: false
@@ -1043,16 +1234,6 @@ components:
         isValid:
           type: boolean
         details:
-          type: string
-
-    creeer301Wrapper:
-      type: object
-      additionalProperties: false
-      description: wrapper object met het validatie resultaat en het aangemaakte XML object als base64 encoded string
-      properties:
-        validationResult:
-          $ref: '#/components/schemas/validationResult'
-        xmlAsBase64String:
           type: string
 
     code:
