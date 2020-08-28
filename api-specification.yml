@@ -176,9 +176,89 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
         'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
-          
-          
-          
+  /api/ijw/315/valideer:	
+    post:	
+      summary: valideer een JW315 xml bericht (base64 encoded)
+      tags:	
+        - iJw
+      parameters:	
+        - in: body	
+          name: 315XmlAsBase64String
+          required: true
+          type: string
+      responses:	
+        '200':	
+          description: het resultaat van de validatie	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/validationResult'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/iwmo/315/valideer:	
+    post:	
+      summary: valideer een WMO315 xml bericht (base64 encoded)
+      tags:	
+        - iWmo
+      parameters:	
+        - in: body	
+          name: 315XmlAsBase64String
+          required: true
+          type: string
+      responses:	
+        '200':	
+          description: het resultaat van de validatie	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/validationResult'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+
 components:
   schemas:
     creeerJW301Bericht:
@@ -936,7 +1016,7 @@ components:
     validationResult:
       type: object
       additionalProperties: false
-      description: "resultaat van het van de gehele actie"
+      description: "resultaat van de gehele actie"
       properties:
         isValid:
           type: boolean
@@ -963,6 +1043,16 @@ components:
         isValid:
           type: boolean
         details:
+          type: string
+
+    creeer301Wrapper:
+      type: object
+      additionalProperties: false
+      description: wrapper object met het validatie resultaat en het aangemaakte XML object als base64 encoded string
+      properties:
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        xmlAsBase64String:
           type: string
 
     code:
