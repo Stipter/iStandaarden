@@ -422,6 +422,8 @@ components:
           format: date
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        verwijzer:
+          $ref: '#/components/schemas/wmoJwVerwijzer'
         raamContract:
           type: string
           description: Codelijst COD260
@@ -536,6 +538,8 @@ components:
           format: date
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        verwijzer:
+          $ref: '#/components/schemas/wmoJwVerwijzer'
         raamContract:
           type: string
           description: Codelijst COD260
@@ -605,6 +609,27 @@ components:
             - '4'
             - '5'
             - '6'
+
+    wmoJwVerwijzer:
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - '01'
+            - '02'
+            - '03'
+            - '04'
+            - '05'
+            - '06'
+            - '08'
+        naam:
+          type: string
+          maxLength: 64
+        zorgverlenerCode:
+          type: string
+          maxLength: 8
 
     wmoJwClient:
       type: object
