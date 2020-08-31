@@ -13,12 +13,13 @@ paths:
       summary: Geeft een JW301 xml bericht als base64 terug	
       tags:	
         - iJw	
-      parameters:	
-        - in: body	
-          name: creeer301Bericht	
-          required: true	
-          schema:	
-            $ref: '#/components/schemas/creeerJW301Bericht'	
+      requestBody:	
+        x-name: creeer301Bericht	
+        required: true
+        content:
+          application/json:
+            schema:	
+              $ref: '#/components/schemas/creeerJW301Bericht'	
       responses:	
         '200':	
           description: Een collectie aanvragen met producten	
@@ -55,12 +56,13 @@ paths:
       summary: Geeft een WMO301 xml bericht als base64 terug	
       tags:	
         - iWmo	
-      parameters:	
-        - in: body	
-          name: creeer301Bericht	
+      requestBody:	
+          x-name: creeer301Bericht	
           required: true	
-          schema:	
-            $ref: '#/components/schemas/creeerWMO301Bericht'	
+          content:
+            application/json:
+              schema:	
+                $ref: '#/components/schemas/creeerWMO301Bericht'	
       responses:	
         '200':	
           description: Een collectie aanvragen met producten	
@@ -181,12 +183,13 @@ paths:
       summary: Valideer een JW315 xml bericht (base64 encoded) en transformeer het naar JSON
       tags:	
         - iJw
-      parameters:	
-        - in: body	
-          name: 315XmlAsBase64String
+      requestBody:	
+          x-name: 315XmlAsBase64String
           required: true
-          schema:
-            type: string
+          content:
+            application/json:
+              schema:
+                type: string
       responses:	
         '200':	
           description: Het resultaat van de validatie. Als het valide is, dan komt het 315 bericht als JSON terug
@@ -223,12 +226,13 @@ paths:
       summary: Valideer een WMO315 xml bericht (base64 encoded) en transformeer het naar JSON
       tags:	
         - iWmo
-      parameters:	
-        - in: body	
-          name: 315XmlAsBase64String
-          required: true
-          schema:
-            type: string
+      requestBody:	
+        x-name: 315XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
       responses:	
         '200':	
           description: Het resultaat van de validatie. Als het valide is, dan komt het 315 bericht terug als JSON
