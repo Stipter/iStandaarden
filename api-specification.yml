@@ -1213,6 +1213,20 @@ components:
       additionalProperties: false
       description: "berichtheader voor zowel iWmo als iJw"
       properties:
+        berichtCode:
+          type: string
+          maxLength: 3
+          description: Code ter identificatie van een soort bericht. Per bericht is gespecificeerd welke code gebruikt moet worden.
+        berichtVersie:
+          type: integer
+          minimum: 0
+          maximum: 99
+          description: Volgnummer van de formele uitgifte van een major release van een iStandaard.
+        berichtSubversie:
+          type: integer
+          minimum: 0
+          maximum: 99
+          description: Volgnummer van de formele uitgifte van een minor release van een iStandaard.
         afzender:
           type: string
           description: CBS gemeentecode van de gemeente die betrokken is bij de uitvoering van zorg of ondersteuning.
