@@ -26,7 +26,7 @@ paths:
           content:	
             application/json:	
               schema:	
-                $ref: '#/components/schemas/creeer301Wrapper'	
+                $ref: '#/components/schemas/creeerBerichtWrapper'	
         '400':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
         '401':	
@@ -69,7 +69,7 @@ paths:
           content:	
             application/json:	
               schema:	
-                $ref: '#/components/schemas/creeer301Wrapper'	
+                $ref: '#/components/schemas/creeerBerichtWrapper'	
         '400':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
         '401':	
@@ -263,6 +263,92 @@ paths:
         '503':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
         'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/ijw/319/creeer:	
+    post:	
+      summary: Geeft een JW319 xml bericht als base64 terug
+      tags:	
+        - iJw
+      requestBody:	
+        x-name: creeer319Bericht	
+        required: true
+        content:
+          application/json:
+            schema:	
+              $ref: '#/components/schemas/creeerJW319Bericht'	
+      responses:	
+        '200':	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 319 bericht terug als JSON
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeerBerichtWrapper'
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/iwmo/319/creeer:	
+    post:	
+      summary: Geeft een WMO319 xml bericht als base64 terug	
+      tags:	
+        - iWmo	
+      requestBody:	
+          x-name: creeer319Bericht	
+          required: true	
+          content:
+            application/json:
+              schema:	
+                $ref: '#/components/schemas/creeerWMO319Bericht'	
+      responses:	
+        '200':	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 319 bericht terug als JSON	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeerBerichtWrapper'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
 
 components:
@@ -305,7 +391,7 @@ components:
 
     creeerWMO315Wrapper:
       type: object
-      description: "Een WMO301 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
+      description: "Een WMO315 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
       additionalProperties: false
       properties:
         wmo315Json:
@@ -317,7 +403,7 @@ components:
 
     creeerJW315Wrapper:
       type: object
-      description: "Een JW301 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
+      description: "Een JW315 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 315 bericht als JSON"
       additionalProperties: false
       properties:
         jw315Json:
@@ -326,6 +412,26 @@ components:
           $ref: '#/components/schemas/validationResult'
         316XmlAsBase64String:
           type: string
+
+    creeerJW319Bericht:
+      type: object
+      description: "Een JW319 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        antwoord:
+          $ref: '#/components/schemas/wmoJwAntwoord'
+
+    creeerWMO319Bericht:
+      type: object
+      description: "Een WMO319 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        antwoord:
+          $ref: '#/components/schemas/wmoJwAntwoord'
 
     jw315Json:
       type: object
@@ -364,7 +470,7 @@ components:
           type: string
         referentieAanbieder:
           type: string
-          maxlength: 36
+          maxLength: 36
         product:
           $ref: '#/components/schemas/jwProduct'
         toewijzingsdatum:
@@ -1207,6 +1313,31 @@ components:
         voorvoegsel:
           type: string
           maxLength: 10
+  
+    wmoJwAntwoord:
+      type: object
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: string
+          maxLength: 36
+        verzoekAntwoord:
+          type: string
+          maxLength: 1
+        redenAfwijzingVerzoek:
+          type: string
+          maxLength: 2
+        woonplaatsbeginsel:
+          $ref: '#/components/schemas/wmoJwGemeente'
+          
+    wmoJwGemeente:
+      type: object
+      additionalProperties: false
+      properties:
+        gemeente:
+          description: Gemeentcode
+          type: string
+          maxLength: 4
 
     wmoJwHeader:
       type: object
@@ -1240,8 +1371,8 @@ components:
         ontvanger:
           type: string
           description: Valide AGB code
-
-    creeer301Wrapper:
+    
+    creeerBerichtWrapper:
       type: object
       additionalProperties: false
       description: wrapper object met het validatie resultaat en het aangemaakte XML object als base64 encoded string
