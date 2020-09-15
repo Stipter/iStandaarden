@@ -1329,7 +1329,7 @@ components:
             - '2'
         redenAfwijzingVerzoek:
           type: string
-          maxLength: 2
+          nullable: true
           enum:
             - '1'
             - '2'
