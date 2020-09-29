@@ -1323,7 +1323,6 @@ components:
           maxLength: 36
         verzoekAntwoord:
           type: string
-          maxLength: 1
           enum:
             - '1'
             - '2'
