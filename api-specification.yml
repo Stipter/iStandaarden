@@ -432,7 +432,170 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         antwoord:
           $ref: '#/components/schemas/wmoJwAntwoord'
-
+          
+    valideerJW320Bericht:
+      type: object
+      description: "Een WMO320 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwRetourHeader'
+        retourCodes:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/jwRetourCode'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+    jwRetourCode:
+      type: string
+      enum:
+        - '0001'
+        - '0013'
+        - '0030'
+        - '0200'
+        - '0233'
+        - '0551'
+        - '0611'
+        - '1112'
+        - '1142'
+        - '8001'
+        - '8017'
+        - '8021'
+        - '8187'
+        - '8214'
+        - '8847'
+        - '8848'
+        - '8849'
+        - '8853'
+        - '8854'
+        - '8855'
+        - '8856'
+        - '9019'
+        - '9056'
+        - '9063'
+        - '9069'
+        - '9071'
+        - '9074'
+        - '9300'
+        - '9307'
+        - '9308'
+        - '9309'
+        - '9311'
+        - '9319'
+        - '9321'
+        - '9322'
+        - '9326'
+        - '9332'
+        - '9333'
+        - '9338'
+        - '9339'
+        - '9340'
+        - '9341'
+        - '9346'
+        - '9347'
+        - '9349'
+        - '9350'
+        - '9351'
+        - '9355'
+        - '9357'
+        - '9359'
+        - '9360'
+        - '9361'
+        - '9362'
+        - '9363'
+        - '9364'
+        - '9365'
+        - '9366'
+        - '9367'
+        - '9369'
+        - '9373'
+        - '9374'
+        - '9375'
+        - 'S300'
+        - 'S329'
+    valideerWMO320Bericht:
+      type: object
+      description: "Een WMO320 json bericht dat getransformeert moet worden naar xml"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwRetourHeader'
+        retourCodes:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoRetourCode'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+          
+    wmoRetourCode:
+      type: string
+      enum:
+        - '0001'
+        - '0013'
+        - '0030'
+        - '0200'
+        - '0233'
+        - '0611'
+        - '1112'
+        - '1142'
+        - '8001'
+        - '8017'
+        - '8021'
+        - '8187'
+        - '8214'
+        - '8847'
+        - '8848'
+        - '8849'
+        - '8853'
+        - '8854'
+        - '8855'
+        - '8856'
+        - '9019'
+        - '9056'
+        - '9063'
+        - '9069'
+        - '9071'
+        - '9074'
+        - '9300'
+        - '9307'
+        - '9308'
+        - '9309'
+        - '9311'
+        - '9319'
+        - '9321'
+        - '9322'
+        - '9326'
+        - '9332'
+        - '9333'
+        - '9338'
+        - '9339'
+        - '9340'
+        - '9341'
+        - '9346'
+        - '9347'
+        - '9349'
+        - '9350'
+        - '9351'
+        - '9355'
+        - '9357'
+        - '9359'
+        - '9360'
+        - '9361'
+        - '9362'
+        - '9363'
+        - '9364'
+        - '9365'
+        - '9366'
+        - '9367'
+        - '9369'
+        - '9373'
+        - '9374'
+        - '9375'
+        - 'S300'
+        - 'S329'
+        
     jw315Json:
       type: object
       description: "Een JW315 json bericht"
@@ -1384,6 +1547,43 @@ components:
           type: string
           description: Valide AGB code
     
+    wmoJwRetourHeader:
+      type: object
+      additionalProperties: false
+      description: "berichtheader retour voor 320"
+      properties:
+        berichtCode:
+          type: string
+          maxLength: 3
+          description: Code ter identificatie van een soort bericht. Per bericht is gespecificeerd welke code gebruikt moet worden.
+        berichtVersie:
+          type: integer
+          minimum: 0
+          maximum: 99
+          description: Volgnummer van de formele uitgifte van een major release van een iStandaard.
+        berichtSubversie:
+          type: integer
+          minimum: 0
+          maximum: 99
+          description: Volgnummer van de formele uitgifte van een minor release van een iStandaard.
+        afzender:
+          type: string
+          description: CBS gemeentecode van de gemeente die betrokken is bij de uitvoering van zorg of ondersteuning.
+        ontvanger:
+          type: string
+          description: Valide AGB code
+        berichtIdentificatie:
+          type: string
+          description: Naam of nummer, die ter identificatie aan een totale aanlevering kan worden meegegeven.
+          maxLength: 12
+        dagtekeningRetour:
+          type: string
+          format: date
+        identificatieRetour:
+          type: string
+          description: Naam of nummer, die ter identificatie aan een totale aanlevering kan worden meegegeven.
+          maxLength: 12
+          
     creeerBerichtWrapper:
       type: object
       additionalProperties: false
