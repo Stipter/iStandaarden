@@ -349,6 +349,92 @@ paths:
         '503':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
         'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	          
+  /api/ijw/320/valideer:	
+    post:	
+      summary: Geeft een JW320 xml bericht terug
+      tags:	
+        - iJw
+      requestBody:	
+        x-name: valideerJW320Bericht	
+        required: true
+        content:
+          application/json:
+            schema:	
+              $ref: '#/components/schemas/valideerJW320Bericht'	
+      responses:	
+        '200':	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 320 bericht terug als JSON
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeerBerichtWrapper'
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
+  /api/iwmo/320/valideer:	
+    post:	
+      summary: Geeft een WMO320 xml bericht terug	
+      tags:	
+        - iWmo	
+      requestBody:	
+          x-name: valideerWMO320Bericht	
+          required: true	
+          content:
+            application/json:
+              schema:	
+                $ref: '#/components/schemas/valideerWMO320Bericht'	
+      responses:	
+        '200':	
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 320 bericht terug als JSON	
+          content:	
+            application/json:	
+              schema:	
+                $ref: '#/components/schemas/creeerBerichtWrapper'	
+        '400':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"	
+        '401':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"	
+        '403':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"	
+        '406':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"	
+        '409':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"	
+        '410':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"	
+        '415':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"	
+        '429':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"	
+        '500':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"	
+        '501':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"	
+        '503':	
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"	
+        'default':	
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"	
 
 components:
