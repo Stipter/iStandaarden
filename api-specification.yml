@@ -746,6 +746,7 @@ components:
             - '09'
             - '10'
             - '11'
+            - '12'
             - null
         budget:
           type: integer
