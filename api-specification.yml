@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
-  version: 3.0.0
+  version: 3.1.0
   title: iStandaarden koppeling
   description: "Een standaard voor gegevensuitwisseling tussen applicaties en de iStandaarden.
                 Ondersteunde standaarden:
-                 * iWMO 3.0
-                 * iJW 3.0"
+                 * iWMO 3.1
+                 * iJW 3.1"
                  
 paths:	
   /api/ijw/301/creeer:	
@@ -784,6 +784,11 @@ components:
           format: date
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        budget:
+          type: integer
+          minimum: 0
+          nullable: true
+          default: null
         verwijzer:
           $ref: '#/components/schemas/wmoJwVerwijzer'
         raamContract:
@@ -901,6 +906,11 @@ components:
           format: date
         omvang:
           $ref: '#/components/schemas/wmoJwOmvang'
+        budget:
+          type: integer
+          minimum: 0
+          nullable: true
+          default: null
         verwijzer:
           $ref: '#/components/schemas/wmoJwVerwijzer'
         raamContract:
@@ -956,8 +966,6 @@ components:
             - '04'
             - '14'
             - '16'
-            - '21'
-            - '81'
             - '82'
             - '83'
             - '84'
@@ -968,9 +976,7 @@ components:
           enum:
             - '1'
             - '2'
-            - '3'
             - '4'
-            - '5'
             - '6'
 
     wmoJwVerwijzer:
