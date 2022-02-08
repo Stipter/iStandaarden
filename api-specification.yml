@@ -897,11 +897,13 @@ components:
         beschikkingNummer:
           type: string
           maxLength: 9
+          nullable: true
         product:
           $ref: '#/components/schemas/wmoProduct'
         beschikkingIngangsdatum:
           type: string
           format: date
+          nullable: true
         toewijzingIngangsdatum:
           type: string
           format: date
