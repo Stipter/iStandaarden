@@ -521,7 +521,7 @@ components:
           
     valideerJW320Bericht:
       type: object
-      description: "Een WMO320 json bericht dat getransformeert moet worden naar xml"
+      description: "Een JW320 json bericht dat getransformeerd moet worden naar xml"
       additionalProperties: false
       properties:
         header:
@@ -598,11 +598,23 @@ components:
         - '9373'
         - '9374'
         - '9375'
+        - '9384'
+        - '9385'
+        - '9387'
+        - '9388'
+        - '9390'
+        - '9379'
+        - '9389'
+        - '9411'
+        - '9412'
+        - '9413'
+        - '9414'
+        - '9415'
         - 'S300'
         - 'S329'
     valideerWMO320Bericht:
       type: object
-      description: "Een WMO320 json bericht dat getransformeert moet worden naar xml"
+      description: "Een WMO320 json bericht dat getransformeerd moet worden naar xml"
       additionalProperties: false
       properties:
         header:
@@ -679,6 +691,18 @@ components:
         - '9373'
         - '9374'
         - '9375'
+        - '9384'
+        - '9385'
+        - '9387'
+        - '9388'
+        - '9390'
+        - '9379'
+        - '9389'
+        - '9411'
+        - '9412'
+        - '9413'
+        - '9414'
+        - '9415'
         - 'S300'
         - 'S329'
         
