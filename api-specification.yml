@@ -594,7 +594,7 @@ components:
           $ref: '#/components/schemas/wmo317Json'
         validationResult:
           $ref: '#/components/schemas/validationResult'
-        316XmlAsBase64String:
+        318XmlAsBase64String:
           type: string
 
     creeerJW317Wrapper:
@@ -606,7 +606,7 @@ components:
           $ref: '#/components/schemas/jw317Json'
         validationResult:
           $ref: '#/components/schemas/validationResult'
-        316XmlAsBase64String:
+        318XmlAsBase64String:
           type: string
 
     creeerJW319Bericht:
@@ -853,10 +853,20 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/jw317Client'
-        aangevraagdeProducten:
+        verzoek:
+          $ref: '#/components/schemas/wmoJw317Verzoek'
+        ongewijzigdProduct:
           type: array
           items:
-            $ref: '#/components/schemas/jwAangevraagdProduct'
+            $ref: '#/components/schemas/wmoJw317OngewijzigdProduct'
+        teWijzigenProduct :
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJw317TeWijzigenProduct'
+        nieuwProduct:
+          type: array
+          items:
+            $ref: '#/components/schemas/jw317NieuwProduct'
 
     wmo317Json:
       type: object
@@ -867,10 +877,18 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/wmo317Client'
-        aangevraagdeProducten:
+        ongewijzigdProduct:
           type: array
           items:
-            $ref: '#/components/schemas/wmoAangevraagdProduct'
+            $ref: '#/components/schemas/wmoJw317OngewijzigdProduct'
+        teWijzigenProduct :
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoJw317TeWijzigenProduct'
+        nieuwProduct:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmo317NieuwProduct'
 
     jwToegewezenProduct:
       type: object
@@ -1225,7 +1243,7 @@ components:
       type: object
       additionalProperties: false
       properties:
-        referentieAanbieder:
+        toewijzingNummer:
           type: integer
           minimum: 0
           maximum: 999999999        
@@ -1234,7 +1252,7 @@ components:
       type: object
       additionalProperties: false
       properties:
-        referentieAanbieder:
+        toewijzingNummer:
           type: integer
           minimum: 0
           maximum: 999999999
@@ -1256,7 +1274,7 @@ components:
       additionalProperties: false
       properties:
         product:
-          $ref: '#/components/schemas/jwProduct'
+          $ref: '#/components/schemas/wmoProduct'
         gewensteIngangsdatum:
           type: string
           format: date
@@ -1275,7 +1293,7 @@ components:
       additionalProperties: false
       properties:
         product:
-          $ref: '#/components/schemas/wmoProduct'
+          $ref: '#/components/schemas/jwProduct'
         gewensteIngangsdatum:
           type: string
           format: date
@@ -1337,17 +1355,9 @@ components:
         commentaar:
           type: string
 
-    jw317Client:
+    wmoJw317Client:
       type: object
       description: "clientrecord uit JW317 berichtklassen volgens de Istandaarden"
-      additionalProperties: false
-      properties:
-        bsn:
-          type: string
-        
-    wmo317Client:
-      type: object
-      description: "clientrecord uit WMO317 berichtklassen volgens de Istandaarden"
       additionalProperties: false
       properties:
         bsn:
