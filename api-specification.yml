@@ -855,15 +855,15 @@ components:
           $ref: '#/components/schemas/wmoJw317Client'
         verzoek:
           $ref: '#/components/schemas/wmoJw317Verzoek'
-        ongewijzigdProduct:
+        ongewijzigdeProducten:
           type: array
           items:
             $ref: '#/components/schemas/wmoJw317OngewijzigdProduct'
-        teWijzigenProduct :
+        teWijzigenProducten:
           type: array
           items:
             $ref: '#/components/schemas/wmoJw317TeWijzigenProduct'
-        nieuwProduct:
+        nieuweProducten:
           type: array
           items:
             $ref: '#/components/schemas/jw317NieuwProduct'
@@ -877,15 +877,15 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/wmoJw317Client'
-        ongewijzigdProduct:
+        ongewijzigdeProducten:
           type: array
           items:
             $ref: '#/components/schemas/wmoJw317OngewijzigdProduct'
-        teWijzigenProduct :
+        teWijzigenProducten:
           type: array
           items:
             $ref: '#/components/schemas/wmoJw317TeWijzigenProduct'
-        nieuwProduct:
+        nieuweProducten:
           type: array
           items:
             $ref: '#/components/schemas/wmo317NieuwProduct'
