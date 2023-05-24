@@ -264,6 +264,92 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/ijw/317/creeer:
+    post:
+      summary: Valideer een JW317 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iJw
+      requestBody:
+          x-name: 317XmlAsBase64String
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 317 bericht als JSON terug
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerJW317Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/iwmo/317/creeer:
+    post:
+      summary: Valideer een WMO317 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iWmo
+      requestBody:
+        x-name: 317XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 317 bericht terug als JSON
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerWMO317Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
   /api/ijw/319/creeer:
     post:
       summary: Geeft een JW319 xml bericht als base64 terug
@@ -499,6 +585,30 @@ components:
         316XmlAsBase64String:
           type: string
 
+    creeerWMO317Wrapper:
+      type: object
+      description: "Een WMO317 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 317 bericht als JSON"
+      additionalProperties: false
+      properties:
+        wmo317Json:
+          $ref: '#/components/schemas/wmo317Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        316XmlAsBase64String:
+          type: string
+
+    creeerJW317Wrapper:
+      type: object
+      description: "Een JW317 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 317 bericht als JSON"
+      additionalProperties: false
+      properties:
+        jw317Json:
+          $ref: '#/components/schemas/jw317Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        316XmlAsBase64String:
+          type: string
+
     creeerJW319Bericht:
       type: object
       description: "Een JW319 json bericht dat getransformeert moet worden naar xml"
@@ -705,7 +815,7 @@ components:
         - '9415'
         - 'S300'
         - 'S329'
-        
+
     jw315Json:
       type: object
       description: "Een JW315 json bericht"
@@ -729,6 +839,34 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/wmo315Client'
+        aangevraagdeProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoAangevraagdProduct'
+        
+    jw317Json:
+      type: object
+      description: "Een JW317 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/jw317Client'
+        aangevraagdeProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/jwAangevraagdProduct'
+
+    wmo317Json:
+      type: object
+      description: "Een WMO317 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmo317Client'
         aangevraagdeProducten:
           type: array
           items:
@@ -1069,6 +1207,88 @@ components:
         commentaar:
           type: string
 
+    wmoJw317Verzoek:
+      type: object
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: string
+          maxLength: 36
+        redenVerzoek:
+          type: string
+          description: Codelijst WJ758
+          enum:
+            - '1'
+            - '2'
+            
+    wmoJw317OngewijzigdProduct:
+      type: object
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: integer
+          minimum: 0
+          maximum: 999999999        
+
+    wmoJw317TeWijzigenProduct:
+      type: object
+      additionalProperties: false
+      properties:
+        referentieAanbieder:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+        gewensteIngangsdatum:
+          type: string
+          format: date
+        einddatum:
+          type: string
+          format: date
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        budget:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+
+    wmo317NieuwProduct:
+      type: object
+      additionalProperties: false
+      properties:
+        product:
+          $ref: '#/components/schemas/jwProduct'
+        gewensteIngangsdatum:
+          type: string
+          format: date
+        einddatum:
+          type: string
+          format: date
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        budget:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+
+    jw317NieuwProduct:
+      type: object
+      additionalProperties: false
+      properties:
+        product:
+          $ref: '#/components/schemas/wmoProduct'
+        gewensteIngangsdatum:
+          type: string
+          format: date
+        einddatum:
+          type: string
+          format: date
+        omvang:
+          $ref: '#/components/schemas/wmoJwOmvang'
+        budget:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+
     jw315Client:
       type: object
       description: "clientrecord uit JW315 berichtklassen volgens de Istandaarden"
@@ -1117,6 +1337,22 @@ components:
         commentaar:
           type: string
 
+    jw317Client:
+      type: object
+      description: "clientrecord uit JW317 berichtklassen volgens de Istandaarden"
+      additionalProperties: false
+      properties:
+        bsn:
+          type: string
+        
+    wmo317Client:
+      type: object
+      description: "clientrecord uit WMO317 berichtklassen volgens de Istandaarden"
+      additionalProperties: false
+      properties:
+        bsn:
+          type: string
+        
     wmoJwVolledigeNaam:
       type: object
       additionalProperties: false
