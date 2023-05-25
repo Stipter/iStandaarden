@@ -877,6 +877,8 @@ components:
           $ref: '#/components/schemas/wmoJwHeader'
         client:
           $ref: '#/components/schemas/wmoJw317Client'
+        verzoek:
+          $ref: '#/components/schemas/wmoJw317Verzoek'
         ongewijzigdeProducten:
           type: array
           items:
