@@ -178,6 +178,180 @@ paths:
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
         'default':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/ijw/305/creeer:
+    post:
+      summary: Valideer een JW305 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iJw
+      requestBody:
+          x-name: 305XmlAsBase64String
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 305 bericht als JSON terug
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerJW305Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/iwmo/305/creeer:
+    post:
+      summary: Valideer een WMO305 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iWmo
+      requestBody:
+        x-name: 305XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 305 bericht terug als JSON
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerWMO305Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+
+  /api/ijw/307/creeer:
+    post:
+      summary: Valideer een JW307 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iJw
+      requestBody:
+          x-name: 307XmlAsBase64String
+          required: true
+          content:
+            application/json:
+              schema:
+                type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 307 bericht als JSON terug
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerJW307Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/iwmo/307/creeer:
+    post:
+      summary: Valideer een WMO307 xml bericht (base64 encoded) en transformeer het naar JSON
+      tags:
+        - iWmo
+      requestBody:
+        x-name: 307XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Het resultaat van de validatie. Als het valide is, dan komt het 307 bericht terug als JSON
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/creeerWMO307Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+
   /api/ijw/315/creeer:
     post:
       summary: Valideer een JW315 xml bericht (base64 encoded) en transformeer het naar JSON
@@ -560,6 +734,54 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/wmoToegewezenProduct'
+    
+    creeerWMO305Wrapper:
+      type: object
+      description: "Een WMO305 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 305 bericht als JSON"
+      additionalProperties: false
+      properties:
+        wmo305Json:
+          $ref: '#/components/schemas/wmo305Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        306XmlAsBase64String:
+          type: string
+
+    creeerJW305Wrapper:
+      type: object
+      description: "Een JW305 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 305 bericht als JSON"
+      additionalProperties: false
+      properties:
+        jw305Json:
+          $ref: '#/components/schemas/jw305Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        306XmlAsBase64String:
+          type: string
+
+    creeerWMO307Wrapper:
+      type: object
+      description: "Een WMO307 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 307 bericht als JSON"
+      additionalProperties: false
+      properties:
+        wmo307Json:
+          $ref: '#/components/schemas/wmo307Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        308XmlAsBase64String:
+          type: string
+
+    creeerJW307Wrapper:
+      type: object
+      description: "Een JW307 wrapper bericht met het validatie resultaat van het ingekomen XML bericht en eventueel het 307 bericht als JSON"
+      additionalProperties: false
+      properties:
+        jw307Json:
+          $ref: '#/components/schemas/jw307Json'
+        validationResult:
+          $ref: '#/components/schemas/validationResult'
+        308XmlAsBase64String:
+          type: string
 
     creeerWMO315Wrapper:
       type: object
@@ -816,6 +1038,62 @@ components:
         - 'S300'
         - 'S329'
 
+    jw305Json:
+      type: object
+      description: "Een JWO305 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmoJw305307Client'
+        gestarteProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/jwStartProduct'
+
+    wmo305Json:
+      type: object
+      description: "Een WMO305 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmoJw305307Client'
+        gestarteProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoStartProduct'
+
+    jw307Json:
+      type: object
+      description: "Een JWO307 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmoJw305307Client'
+        gestopteProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/jwEindProduct'
+
+    wmo307Json:
+      type: object
+      description: "Een WMO307 json bericht"
+      additionalProperties: false
+      properties:
+        header:
+          $ref: '#/components/schemas/wmoJwHeader'
+        client:
+          $ref: '#/components/schemas/wmoJw305307Client'
+        gestopteProducten:
+          type: array
+          items:
+            $ref: '#/components/schemas/wmoEindProduct'
+
     jw315Json:
       type: object
       description: "Een JW315 json bericht"
@@ -891,6 +1169,152 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/wmo317NieuwProduct'
+
+    jwStartProduct:
+      type: object
+      description: "Start product"
+      additionalProperties: false
+      properties:
+        toewijzingNummer:
+          type: string
+          nullable: true
+        product:
+          $ref: '#/components/schemas/jwProduct'
+          nullable: true
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+          nullable: true
+        begindatum:
+          type: string
+          format: date
+        statusAanlevering:
+          type: string
+          nullable: false
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '9'
+
+    wmoStartProduct:
+      type: object
+      description: "Start product"
+      additionalProperties: false
+      properties:
+        toewijzingNummer:
+          type: string
+          nullable: true
+        product:
+          $ref: '#/components/schemas/wmoProduct'
+          nullable: true
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+          nullable: true
+        begindatum:
+          type: string
+          format: date
+          nullable: true
+        statusAanlevering:
+          type: string
+          nullable: false
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '9'
+
+    jwEindProduct:
+      type: object
+      description: "Eind product"
+      additionalProperties: false
+      properties:
+        toewijzingNummer:
+          type: string
+          nullable: true
+        product:
+          $ref: '#/components/schemas/jwProduct'
+          nullable: true
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+          nullable: true
+        begindatum:
+          type: string
+          format: date
+        statusAanlevering:
+          type: string
+          nullable: false
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '9'
+        einddatum:
+          type: string
+          format: date
+        redenBeeindiging:
+          type: string
+          nullable: false
+          enum:
+            - '02'
+            - '20'
+            - '31'
+            - '32'
+            - '33'
+            - '34'
+            - '35'
+            - '36'
+            - '37'
+            - '38'
+            - '39'
+
+    wmoEindProduct:
+      type: object
+      description: "Eind product"
+      additionalProperties: false
+      properties:
+        toewijzingNummer:
+          type: string
+          nullable: true
+        product:
+          $ref: '#/components/schemas/wmoProduct'
+          nullable: true
+        toewijzingIngangsdatum:
+          type: string
+          format: date
+          nullable: true
+        begindatum:
+          type: string
+          format: date
+          nullable: true
+        statusAanlevering:
+          type: string
+          nullable: false
+          enum:
+            - '1'
+            - '2'
+            - '3'
+            - '9'
+        einddatum:
+          type: string
+          format: date
+        redenBeeindiging:
+          type: string
+          nullable: false
+          enum:
+            - '02'
+            - '19'
+            - '20'
+            - '21'
+            - '22'
+            - '23'
+            - '31'
+            - '36'
+            - '37'
+            - '38'
+            - '39'
 
     jwToegewezenProduct:
       type: object
@@ -1335,6 +1759,25 @@ components:
             - '2'
         commentaar:
           type: string
+
+    wmoJw305307Client:
+      type: object
+      description: "clientrecord uit WMO305/7 en JW305/7 berichtklassen volgens de Istandaarden"
+      additionalProperties: false
+      properties:
+        bsn:
+          type: string
+        geboortedatum:
+          $ref: '#/components/schemas/wmoJwGeboortedatum'
+        geslacht:
+          type: string
+          description: Codelijst COD046
+          enum:
+            - '0'
+            - '1'
+            - '2'
+        naam:
+          $ref: '#/components/schemas/wmoJwVerkorteNaam'
 
     wmo315Client:
       type: object
