@@ -1217,7 +1217,6 @@ components:
         begindatum:
           type: string
           format: date
-          nullable: true
         statusAanlevering:
           type: string
           nullable: false
@@ -1292,7 +1291,6 @@ components:
         begindatum:
           type: string
           format: date
-          nullable: true
         statusAanlevering:
           type: string
           nullable: false
