@@ -1176,8 +1176,9 @@ components:
       additionalProperties: false
       properties:
         toewijzingNummer:
-          type: string
-          nullable: true
+          type: integer
+          minimum: 0
+          maximum: 999999999
         product:
           $ref: '#/components/schemas/jwProduct'
           nullable: true
@@ -1203,8 +1204,9 @@ components:
       additionalProperties: false
       properties:
         toewijzingNummer:
-          type: string
-          nullable: true
+          type: integer
+          minimum: 0
+          maximum: 999999999
         product:
           $ref: '#/components/schemas/wmoProduct'
           nullable: true
@@ -1231,8 +1233,9 @@ components:
       additionalProperties: false
       properties:
         toewijzingNummer:
-          type: string
-          nullable: true
+          type: integer
+          minimum: 0
+          maximum: 999999999
         product:
           $ref: '#/components/schemas/jwProduct'
           nullable: true
@@ -1276,8 +1279,9 @@ components:
       additionalProperties: false
       properties:
         toewijzingNummer:
-          type: string
-          nullable: true
+          type: integer
+          minimum: 0
+          maximum: 999999999
         product:
           $ref: '#/components/schemas/wmoProduct'
           nullable: true
@@ -1672,7 +1676,7 @@ components:
         toewijzingNummer:
           type: integer
           minimum: 0
-          maximum: 999999999        
+          maximum: 999999999
 
     wmoJw317TeWijzigenProduct:
       type: object
