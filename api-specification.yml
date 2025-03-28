@@ -444,12 +444,12 @@ paths:
       tags:
         - iJw
       requestBody:
-          x-name: 317XmlAsBase64String
-          required: true
-          content:
-            application/json:
-              schema:
-                type: string
+        x-name: 317XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
       responses:
         '200':
           description: Het resultaat van de validatie. Als het valide is, dan komt het 317 bericht als JSON terug
@@ -500,6 +500,92 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/creeerWMO317Wrapper'
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/ijw/318/creeer:
+    post:
+      summary: Creeer een JW318 xml bericht (base64 encoded) gebaseerd op een JW317 en voeg functionele fouten (retourcodes) toe
+      tags:
+        - iJw
+      requestBody:
+        x-name: 317XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/creeerJW318Wrapper'
+      responses:
+        '200':
+          description: Het resultaat van de transformatie - het 318 bericht als base64 encoded XML string
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/default"
+  /api/iwmo/318/creeer:
+    post:
+      summary: Creeer een WMO318 xml bericht (base64 encoded) gebaseerd op een WMO317 en voeg functionele fouten (retourcodes) toe
+      tags:
+        - iWmo
+      requestBody:
+        x-name: 317XmlAsBase64String
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/creeerWMO318Wrapper'
+      responses:
+        '200':
+          description: Het resultaat van de transformatie - het 318 bericht als base64 encoded XML string
+          content:
+            application/json:
+              schema:
+                type: string
         '400':
           $ref: "https://raw.githubusercontent.com/open-sociaal-domein/generieke-componenten/master/common.yaml#/components/responses/400"
         '401':
@@ -830,6 +916,78 @@ components:
           $ref: '#/components/schemas/validationResult'
         318XmlAsBase64String:
           type: string
+
+    objectType:
+      type: string
+      enum:
+        - 'Header'
+        - 'Client'
+        - 'Verzoek'
+        - 'ToewijzingsNummer'
+    retourCodeWmoVoorObject:
+      type: object
+      description: Een wrapper object waarin aangegeven staat aan welk object een specifieke retourcode toegevoegd moet worden
+      additionalProperties: false
+      properties:
+        retourCode:
+          $ref: '#/components/schemas/wmoRetourCode'
+        objectType:
+          description: |-
+            Indicatie van het object waar de retourcode aan toegevoegd moet worden.
+            Voor Header, Client of Verzoek is het eenvoudig, want er is er maar één.
+            In het geval van Toewijzingnummer moet ook het specifieke toewijzingnummer toegevoegd worden in dat specifieke veldennamen.
+            Er wordt dan getracht dit toewijzingnummer te vinden in 'OngewijzigdProduct' en 'TeWijzigenProduct'.
+            Op 'NieuwProduct' kan momenteel geen retourcode toegevoegd worden.
+          $ref: '#/components/schemas/objectType'
+        toewijzingNummer:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+    retourCodeJwVoorObject:
+      type: object
+      description: Een wrapper object waarin aangegeven staat aan welk object een specifieke retourcode toegevoegd moet worden
+      additionalProperties: false
+      properties:
+        retourCode:
+          $ref: '#/components/schemas/jwRetourCode'
+        objectType:
+          description: |-
+            Indicatie van het object waar de retourcode aan toegevoegd moet worden.
+            Voor Header, Client of Verzoek is het eenvoudig, want er is er maar één.
+            In het geval van Toewijzingnummer moet ook het specifieke toewijzingnummer toegevoegd worden in dat specifieke veldennamen.
+            Er wordt dan getracht dit toewijzingnummer te vinden in 'OngewijzigdProduct' en 'TeWijzigenProduct'.
+            Op 'NieuwProduct' kan momenteel geen retourcode toegevoegd worden.
+          $ref: '#/components/schemas/objectType'
+        toewijzingNummer:
+          type: integer
+          minimum: 0
+          maximum: 999999999
+    creeerWMO318Wrapper:
+      type: object
+      description: Een WMO318 wrapper bericht met het oorspronkelijke 317 bericht en de retourcodes die toegevoegd moeten worden
+      additionalProperties: false
+      properties:
+        317XmlAsBase64String:
+          description: Het originele 317 bericht
+          type: string
+        retourCodesPerObject:
+          description: de retourcodes per object die toegevoegd moeten worden aan het betreffende object
+          type: array
+          items:
+            $ref: '#/components/schemas/retourCodeWmoVoorObject'
+    creeerJW318Wrapper:
+      type: object
+      description: Een JW318 wrapper bericht met het oorspronkelijke 317 bericht en de retourcodes die toegevoegd moeten worden
+      additionalProperties: false
+      properties:
+        317XmlAsBase64String:
+          description: Het originele 317 bericht
+          type: string
+        retourCodesPerObject:
+          description: de retourcodes per object die toegevoegd moeten worden aan het betreffende object
+          type: array
+          items:
+            $ref: '#/components/schemas/retourCodeJwVoorObject'
 
     creeerJW319Bericht:
       type: object
