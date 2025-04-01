@@ -924,26 +924,7 @@ components:
         - 'Client'
         - 'Verzoek'
         - 'ToewijzingsNummer'
-    retourCodeWmoVoorObject:
-      type: object
-      description: Een wrapper object waarin aangegeven staat aan welk object een specifieke retourcode toegevoegd moet worden
-      additionalProperties: false
-      properties:
-        retourCode:
-          $ref: '#/components/schemas/wmoJwRetourCode'
-        objectType:
-          description: |-
-            Indicatie van het object waar de retourcode aan toegevoegd moet worden.
-            Voor Header, Client of Verzoek is het eenvoudig, want er is er maar één.
-            In het geval van Toewijzingnummer moet ook het specifieke toewijzingnummer toegevoegd worden in dat specifieke veldennamen.
-            Er wordt dan getracht dit toewijzingnummer te vinden in 'OngewijzigdProduct' en 'TeWijzigenProduct'.
-            Op 'NieuwProduct' kan momenteel geen retourcode toegevoegd worden.
-          $ref: '#/components/schemas/objectType'
-        toewijzingNummer:
-          type: integer
-          minimum: 0
-          maximum: 999999999
-    retourCodeJwVoorObject:
+    retourCode318VoorObject:
       type: object
       description: Een wrapper object waarin aangegeven staat aan welk object een specifieke retourcode toegevoegd moet worden
       additionalProperties: false
@@ -974,7 +955,7 @@ components:
           description: de retourcodes per object die toegevoegd moeten worden aan het betreffende object
           type: array
           items:
-            $ref: '#/components/schemas/retourCodeWmoVoorObject'
+            $ref: '#/components/schemas/retourCode318VoorObject'
     creeerJW318Wrapper:
       type: object
       description: Een JW318 wrapper bericht met het oorspronkelijke 317 bericht en de retourcodes die toegevoegd moeten worden
@@ -987,7 +968,7 @@ components:
           description: de retourcodes per object die toegevoegd moeten worden aan het betreffende object
           type: array
           items:
-            $ref: '#/components/schemas/retourCodeJwVoorObject'
+            $ref: '#/components/schemas/retourCode318VoorObject'
 
     creeerJW319Bericht:
       type: object
