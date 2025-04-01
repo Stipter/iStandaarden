@@ -930,7 +930,7 @@ components:
       additionalProperties: false
       properties:
         retourCode:
-          $ref: '#/components/schemas/wmoRetourCode'
+          $ref: '#/components/schemas/wmoJwRetourCode'
         objectType:
           description: |-
             Indicatie van het object waar de retourcode aan toegevoegd moet worden.
@@ -949,7 +949,7 @@ components:
       additionalProperties: false
       properties:
         retourCode:
-          $ref: '#/components/schemas/jwRetourCode'
+          $ref: '#/components/schemas/wmoJwRetourCode'
         objectType:
           description: |-
             Indicatie van het object waar de retourcode aan toegevoegd moet worden.
@@ -1020,88 +1020,9 @@ components:
           nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/jwRetourCode'
+            $ref: '#/components/schemas/wmoJwRetourCode'
         validationResult:
           $ref: '#/components/schemas/validationResult'
-    jwRetourCode:
-      type: string
-      enum:
-        - '0001'
-        - '0013'
-        - '0030'
-        - '0200'
-        - '0233'
-        - '0551'
-        - '0611'
-        - '1112'
-        - '1142'
-        - '8001'
-        - '8017'
-        - '8021'
-        - '8187'
-        - '8214'
-        - '8847'
-        - '8848'
-        - '8849'
-        - '8853'
-        - '8854'
-        - '8855'
-        - '8856'
-        - '9019'
-        - '9056'
-        - '9063'
-        - '9069'
-        - '9071'
-        - '9074'
-        - '9300'
-        - '9307'
-        - '9308'
-        - '9309'
-        - '9311'
-        - '9319'
-        - '9321'
-        - '9322'
-        - '9326'
-        - '9332'
-        - '9333'
-        - '9338'
-        - '9339'
-        - '9340'
-        - '9341'
-        - '9346'
-        - '9347'
-        - '9349'
-        - '9350'
-        - '9351'
-        - '9355'
-        - '9357'
-        - '9359'
-        - '9360'
-        - '9361'
-        - '9362'
-        - '9363'
-        - '9364'
-        - '9365'
-        - '9366'
-        - '9367'
-        - '9369'
-        - '9373'
-        - '9374'
-        - '9375'
-        - '9384'
-        - '9385'
-        - '9387'
-        - '9388'
-        - '9390'
-        - '9379'
-        - '9389'
-        - '9411'
-        - '9412'
-        - '9413'
-        - '9414'
-        - '9415'
-        - 'S300'
-        - 'S329'
     valideerWMO320Bericht:
       type: object
       description: "Een WMO320 json bericht dat getransformeerd moet worden naar xml"
@@ -1113,11 +1034,11 @@ components:
           nullable: true
           type: array
           items:
-            $ref: '#/components/schemas/wmoRetourCode'
+            $ref: '#/components/schemas/wmoJwRetourCode'
         validationResult:
           $ref: '#/components/schemas/validationResult'
           
-    wmoRetourCode:
+    wmoJwRetourCode:
       type: string
       enum:
         - '0001'
